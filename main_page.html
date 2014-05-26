@@ -85,6 +85,7 @@
                         </div>
                         <div class="ui-block-e">
                             <div data-role="fieldcontain">
+                                <a id="btn_logout" href="javascript:void(0)" onClick="logout_function();" data-role="button" data-corners="false" data-theme="g" data-inline="true" data-mini="true" class="menu_header_menu_button_width"><span class="menu_font_size">登出</span></a>
                                 <a id="createBill" href="javascript:void(0)" onClick="create_table_list_function();" data-role="button" data-corners="false" data-theme="g" data-inline="true" data-mini="true" class="menu_header_menu_button_width"><span class="menu_font_size">开台</span></a>
                                 <a id="orderPanel" href="javascript:void(0)" onClick="order_panel();" rel="external" data-ajax="false" data-role="button" data-corners="false" data-theme="g" data-icon="check" data-inline="true" data-mini="true" class="menu_header_menu_button_width"><span class="menu_font_size">已选菜肴</span></a>
                             </div>
@@ -803,6 +804,40 @@
     }
 
     //responsive code end
+
+    function logout_function() {
+        var txt_username = localStorage.getItem('username');
+        var SelectedOutletCode = localStorage.getItem('outlet');
+        var SelectedStationCode = localStorage.getItem('station');
+
+        var wsUrl_get_logout_list = "http://175.139.183.94:1002/webservice_posv5/n_webservice_posv5.asmx?op=of_logout";
+
+        var soapRequest_get_logout_list =
+            '<?xml version="1.0" encoding="utf-8"?> \
+                <soap:Envelope xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/"> \
+                  <soap:Body> \
+                    <of_logout xmlns="http://tempurl.org"> \
+                      <as_outlet_cd>' + SelectedOutletCode + '</as_outlet_cd> \
+                      <as_station_cd>' + SelectedStationCode + '</as_station_cd> \
+                      <as_logid>' + txt_username + '</as_logid> \
+                    </of_logout> \
+                  </soap:Body> \
+                </soap:Envelope>';
+
+        $.ajax({
+            type: "POST",
+            url: wsUrl_get_logout_list,
+            contentType: "text/xml",
+            dataType: "xml",
+            data: soapRequest_get_logout_list,
+            success: function (xmlHttpRequest, status, req) {
+                window.location.href = "index.html";
+            },
+            error: function (data, status) {
+                alert(data.responseText);
+            }
+        });
+    }
 
     $(document).ready(function () {
         getoutlet_meal_majorList();
