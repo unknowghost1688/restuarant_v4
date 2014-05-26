@@ -195,7 +195,7 @@
                 var xml2json = new XMLtoJSON();
                 var decoded_get_table_bill_order_item = $("<div/>").html(req.responseText).text();
                 var strjson_get_table_bill_order_item = xml2json.fromStr(decoded_get_table_bill_order_item, 'string');
-                
+                alert(strjson_get_table_bill_order_item);
 				outlet_get_table_bill_order_item_collection.push('aaaa');
                 outlet_get_table_bill_order_item_join = outlet_get_table_bill_order_item_collection.join("");
                 var select_get_table_bill_order_itemu = $('#table_container');
