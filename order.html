@@ -4,19 +4,11 @@
     <!-- jQuery and jQuery Mobile -->
     <script src="lib/jquery-1.9.1.min.js"></script>
     <script src="lib/jquery.mobile-1.3.1.min.js"></script>
+    <script src="lib/xmlToJason.js"></script>
     <link rel="stylesheet" href="css/jquery.mobile-1.3.1.min.css">
 
     <!-- Golf style and jQuery -->
     <link rel="stylesheet" href="css/golfStyle.css">
-    <script type="text/javascript" src="phonegap.js"></script>
-    <script type="text/javascript" src="js/PushNotification.js"></script>
-    <script type="text/javascript" src="js/index.js"></script>
-    <script type="text/javascript">
-        app.initialize();
-    </script>
-    <script type="text/javascript" src="slider_js/jssor.core.js"></script>
-    <script type="text/javascript" src="slider_js/jssor.utils.js"></script>
-    <script type="text/javascript" src="slider_js/jssor.slider.js"></script>
     <title></title>
 </head>
 <body>
@@ -28,22 +20,32 @@
                 <table data-role="table" id="Table1" data-mode="" class="ui-responsive condiment_tbl">
                     <thead>
                         <tr>
-                            <td class="orderLeft_Pic" rowspan="3">
+                            <th id="th_orderLeft_Pic" class="orderLeft_Pic" rowspan="5">
                                 &nbsp;&nbsp;
-                            </td>
+                            </th>
                             <th>
                                 请输入菜品数量: &nbsp;&nbsp; <input type="text" class="menu_input_box" id="txtCount" value="" data-role="none" data-mini="true" data-theme="b" data-corners="false">
                             </th>
                         </tr>
                         <tr>
                             <th>
-                                <span class="condiment_title">青岛啤酒330ml</span>
-                                <span class="condiment_price">RM 30</span>
+                                <span id="condiment_title" class="condiment_title"></span>
+                                <span id="condiment_price" class="condiment_price"></span>
                             </th>
                         </tr>
                         <tr>
                             <th>
-                                <a id="confirm" class="ui-btn-right ui-btn ui-shadow ui-mini ui-btn-inline ui-btn-up-f condiment_button" data-corners="false" data-inline="true" data-mini="true" data-theme="f" data-role="button" data-shadow="true" data-iconshadow="true" data-wrapperels="span">
+                                <span id="item_descs"></span>
+                            </th>
+                        </tr>
+                        <tr>
+                            <th>
+                                &nbsp;
+                            </th>
+                        </tr>
+                        <tr>
+                            <th>
+                                <a id="confirm" class="ui-btn-right ui-btn ui-shadow ui-mini ui-btn-inline ui-btn-up-f condiment_button" data-corners="false" data-inline="true" data-mini="true" data-theme="f" data-role="button" data-shadow="true" data-iconshadow="true" data-wrapperels="span" onClick="create_order_item_function();">
                                     <span class="ui-btn-inner">
                                         <span class="ui-btn-text">确定</span>
                                     </span>
@@ -65,3 +67,117 @@
     </div>
 </body>
 </html>
+
+<script type="text/javascript">
+    function create_order_item_function() {
+
+        /// <summary>
+        /// 点菜下单
+        /// </summary>
+        /// <param name="as_outlet_cd">销售点代码</param>
+        /// <param name="as_station_cd">收银台代码</param>
+        /// <param name="as_meal_cd">膳食期间*</param>
+        /// <param name="as_bill_no">账单号</param>
+        /// <param name="adt_doc_date">营业日期</param>
+        /// <param name="as_cust_type">顾客类型</param>
+        /// <param name="as_item_info">所点菜品信息格式：菜品1代码,数量|菜品2代码,数量|…样例:4063,1|2012,2|2109,1</param>
+        /// <param name="as_remark">菜品备注</param>
+        /// <param name="ai_shift">营业班次</param>
+        /// <param name="as_logid">登陆用户</param>
+        /// <returns>0	成功</returns>
+        
+        var txtCount = $("#txtCount").val();
+        if (txtCount != "" && $.isNumeric(txtCount) == true) {
+            if (confirm("确认下单吗?")) {
+                var outlet = localStorage.getItem('outlet');
+                var station = localStorage.getItem('station');
+                var mealperiod = localStorage.getItem('mealperiod');
+                var bill_no = localStorage.getItem('bill_no');
+                var item_item_cd = localStorage.getItem('item_item_cd');
+                var username = localStorage.getItem('username');
+                var item_descs = localStorage.getItem('item_descs');
+                var item_price = localStorage.getItem('item_price');
+                var by_weight = localStorage.getItem('by_weight');
+
+                var total_price = txtCount * item_price;
+
+                var item_info = '<?xml version="1.0" encoding="UTF-16LE" standalone="no"?> \
+                    <ds_pt_order> \
+                        <ds_pt_order_row> \
+                            <item_cd>' + item_item_cd + '</item_cd> \
+                            <descs>' + item_descs + '</descs> \
+                            <price>' + item_price + '</price> \
+                            <qty>' + txtCount + '</qty> \
+                            <trx_amt>' + total_price + '</trx_amt> \
+                            <weight>' + by_weight + '</weight> \
+                            <takeaway>N</takeaway> \
+                            <remark /> \
+                            <remark_group /> \
+                        </ds_pt_order_row>  \
+                    </ds_pt_order>';
+
+                var item_info_encoded = $('<div/>').text(item_info).html();
+
+
+                var wsUrl_get_create_order_item_list = "http://175.139.183.94:1002/webservice_posv5/n_webservice_posv5.asmx?op=of_create_order_item";
+
+                var soapRequest_get_create_order_item_list =
+                    '<?xml version="1.0" encoding="utf-8"?> \
+				        <soap:Envelope xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/"> \
+				          <soap:Body> \
+					        <of_create_order_item xmlns="http://tempurl.org"> \
+					          <as_outlet_cd>' + outlet + '</as_outlet_cd> \
+					          <as_station_cd>' + station + '</as_station_cd> \
+					          <as_meal_cd>' + mealperiod + '</as_meal_cd> \
+					          <as_bill_no>' + bill_no + '</as_bill_no> \
+					          <adt_doc_date>2014-02-25</adt_doc_date> \
+					          <as_item_info>' + item_info_encoded + '</as_item_info> \
+					          <ai_shift>1</ai_shift> \
+					          <as_logid>' + username + '</as_logid> \
+					        </of_create_order_item> \
+				          </soap:Body> \
+				        </soap:Envelope>';
+
+                $.ajax({
+                    type: "POST",
+                    url: wsUrl_get_create_order_item_list,
+                    contentType: "text/xml",
+                    dataType: "xml",
+                    data: soapRequest_get_create_order_item_list,
+                    success: function (xmlHttpRequest, status, req) {
+                        // creates object instantce of XMLtoJSON
+                        var xml2json = new XMLtoJSON();
+                        var decoded_get_create_order_item_list = $("<div/>").html(req.responseText).text();
+                        
+                        if (decoded_get_create_order_item_list == 0) {
+                            alert('点菜成功');
+                        }else{
+                            alert(decoded_get_create_order_item_list);
+                        }
+                    },
+                    error: function (data, status) {
+                        alert(data.responseText);
+                    }
+                });
+            }
+        } else {
+            alert("请输入份数");
+        }
+    }
+
+    $(document).ready(function () {
+        var item_descs = localStorage.getItem('item_descs');
+        var item_item_desc = localStorage.getItem('item_item_desc');
+        var item_picture_name = localStorage.getItem('item_picture_name');
+        var item_price = localStorage.getItem('item_price');
+
+        var pic = item_picture_name.substr(item_picture_name.length-5);
+        
+        $("#condiment_title").html(item_descs);
+        $("#condiment_price").html('RM ' + item_price);
+        $("#item_descs").html(item_item_desc);
+        
+        $('#th_orderLeft_Pic').css("background-image", "url(images/" + pic + ")");
+    });
+
+</script>

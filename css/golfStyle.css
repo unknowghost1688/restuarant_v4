@@ -13,18 +13,18 @@
     background: url('../images/header-bg.jpg') repeat-x;
 }
 
-#username {
+#txt_username {
     background: url(../images/un.jpg) no-repeat;
     background-position:left center;
     padding-left:40px;
-    font-size: 4.5vw;
+    font-size: 3vw;
 }
 
-#password {
+#txt_password {
     background: url(../images/pw.jpg) no-repeat;
     background-position:left center;
     padding-left:40px;
-    font-size: 4.5vw;
+    font-size: 3vw;
 }
 
 .condiment_tbl {
@@ -90,10 +90,11 @@
 .orderPanelClass {
     font-size: 2vw;
     border-bottom: 1px solid #000000;
+    text-align: center;
 }
 
 .menu_type_size {
-    font-size: 2.5vw;
+    font-size: 1.5vw;
     white-space:normal;
     text-transform: uppercase;
     font-weight:bold;
@@ -123,13 +124,13 @@
 }
 
 .menu_width {
-    width: 80px;
+    width: 100px;
     height: 50px;
     text-align: center;
 }
 
 .menu_price_width {
-    width: 50px;
+    width: 75px;
     height: 50px;
     text-align: center;
     padding: 0px;
@@ -153,7 +154,7 @@
 
 .menu_input_box {
     font-size: 2vw;
-    width: 50px;
+    width: 120px;
 }
 
 label {
