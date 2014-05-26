@@ -130,6 +130,9 @@
                 if (strjson_void_order_item == "Invalid XML format") {
                     if (decoded_void_order_item == 0) {
                         alert("删除成功");
+                        $("#txtCount").val("");
+                        $("#popupBasic").popup("close");
+                        get_table_bill_order_item_function();
                     }
                 } else {
                     alert("删除失败");
