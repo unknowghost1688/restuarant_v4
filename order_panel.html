@@ -496,8 +496,10 @@
 
                 var select_get_table_bill_order_itemu = $('#table_container');
                 select_get_table_bill_order_itemu.html('');
+				alert(select_get_table_bill_order_itemu);
                 select_get_table_bill_order_itemu.html(outlet_get_table_bill_order_item_join);
                 $("#table_container").trigger("create");
+				$("#table_container").trigger("change");
             },
             error: function (data, status) {
                 alert(data.responseText);
