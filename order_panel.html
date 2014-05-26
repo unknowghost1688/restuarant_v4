@@ -296,44 +296,6 @@
                     outlet_get_table_bill_order_item_collection.push('<td colspan="8">');
 
 
-                    if (typeof parse_strjson_get_table_bill_order_item['ds_pt_order_list']['ds_pt_order_list_row'][0] != 'undefined') {
-
-                        $.each(parse_strjson_get_table_bill_order_item['ds_pt_order_list']['ds_pt_order_list_row'], function () {
-                            var status = $.trim(this['status']['#text']);
-                            var order_seq_no = this['order_seq_no']['#text'];
-                            
-                            if (status == "A") {
-                                outlet_get_table_bill_order_item_finalize.push(order_seq_no);
-                                available_order_items[order_seq_no] = [];
-
-                                available_order_items[order_seq_no].push({
-                                    "item_cd": this['item_cd']['#text'],
-                                    "descs": this['descs']['#text'],
-                                    "qty": this['qty']['#text'],
-                                    "price": this['price']['#text'],
-                                    "trx_amt": this['trx_amt']['#text'],
-                                    "remark": this['remark']['#text'],
-                                    "status": this['status']['#text'],
-                                    "order_seq_no": this['order_seq_no']['#text'],
-                                    "weight": this['weight']['#text'],
-                                    "tax_surcharge": this['tax_surcharge']['#text'],
-                                    "total_tax_amt": this['total_tax_amt']['#text'],
-                                    "disc_amt": this['disc_amt']['#text']
-                                });
-                                total_items = total_items + parseFloat(this['qty']['#text']);
-                            } else if (status == "X") {
-                                var from_orderno = $.trim(this['from_orderno']['#text']);
-                                var canceled_qty = $.trim(this['qty']['#text']);
-                                var canceled_trx_amt = $.trim(this['trx_amt']['#text']);
-                                var original_trx_amt = available_order_items[from_orderno][0]['trx_amt'];
-                                var original_qty = available_order_items[from_orderno][0]['qty'];
-                                available_order_items[from_orderno][0]['trx_amt'] = parseFloat(original_trx_amt) + parseFloat(canceled_trx_amt);
-                                available_order_items[from_orderno][0]['qty'] = parseFloat(original_qty) + parseFloat(canceled_qty);
-                                total_items = total_items + parseFloat(this['qty']['#text']);
-                            }
-                        });
-
-                    }
 
                 }
 
