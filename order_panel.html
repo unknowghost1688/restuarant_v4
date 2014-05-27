@@ -21,10 +21,11 @@
                 
             </div>
             <div data-role="popup" id="popupBasic">
+                <a href="#" data-rel="back" data-role="button" data-theme="a" data-icon="delete" data-iconpos="notext" class="ui-btn-left">Close</a>
                 <table data-role="table" id="Table1" data-mode="" class="ui-responsive condiment_tbl">
                     <thead>
                         <tr>
-                            <th>
+                            <th style="text-align:center;">
                                 删除
                             </th>
                         </tr>
@@ -213,7 +214,7 @@
                     outlet_get_table_bill_order_item_collection.push('单号: ' + bill_no);
                     outlet_get_table_bill_order_item_collection.push('</span>');
                     outlet_get_table_bill_order_item_collection.push('</th>');
-                    outlet_get_table_bill_order_item_collection.push('<th style="float: right;>');
+                    outlet_get_table_bill_order_item_collection.push('<th style="float: right;">');
                     outlet_get_table_bill_order_item_collection.push('<a class="ui-btn ui-btn-up-f ui-shadow ui-btn-corner-all ui-mini ui-btn-icon-notext" data-theme="f" data-iconpos="notext" data-icon="delete" data-mini="true" data-role="button" style="float: left;" data-rel="back" href="#" data-corners="true" data-shadow="true" data-iconshadow="true" data-wrapperels="span" title="Close">');
                     outlet_get_table_bill_order_item_collection.push('<span class="ui-btn-inner">');
                     outlet_get_table_bill_order_item_collection.push('<span class="ui-btn-text">');
