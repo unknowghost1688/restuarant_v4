@@ -2,13 +2,13 @@
 <head>
     
     <!-- jQuery and jQuery Mobile -->
-    <script src="lib/jquery-1.9.1.min.js"></script>
-    <script src="lib/jquery.mobile-1.3.1.min.js"></script>
+    <script src="lib/jquery-2.0.2.min.js"></script>
+    <script src="lib/jquery.mobile-1.4.2.min.js"></script>
     <script src="lib/xmlToJason.js"></script>
-    <link rel="stylesheet" href="css/jquery.mobile-1.3.1.min.css">
+    <link rel="stylesheet" href="css/jquery.mobile-1.4.2.min.css">
 
     <!-- Golf style and jQuery -->
-    <link rel="stylesheet" href="css/golfStyle.css">
+    <link rel="stylesheet" href="css/restaurantStyle.css">
     <!-- Slider JS -->
     <script type="text/javascript" src="slider_js/jssor.core.js"></script>
     <script type="text/javascript" src="slider_js/jssor.utils.js"></script>
@@ -47,18 +47,19 @@
         <div class="ui-login-content">
             <br />
             
-            <div class="ui-grid-b slot" id="aa">
-                <div class="ui-block-a"></div>
-                <div class="ui-block-b"></div>
-                <div class="ui-block-c">
-                    <div data-role="controlgroup" data-type="horizontal">
-                        <a id="createBill" href="javascript:void(0)" onClick="create_table_list_function();" data-role="button" data-corners="false" data-theme="g" data-inline="true" data-mini="true" class="menu_header_menu_button_width"><span class="menu_font_size">开台</span></a>
-                        <a id="btn_logout" href="javascript:void(0)" onClick="logout_function();" data-role="button" data-corners="false" data-theme="g" data-inline="true" data-mini="true" class="menu_header_menu_button_width"><span class="menu_font_size">登出</span></a>
+			<div class="ui-content" align="center">
+                
+                <div class="ui-grid-b slot" id="aa">
+                    <div class="ui-block-a"></div>
+                    <div class="ui-block-b"></div>
+                    <div class="ui-block-c">
+                        <div data-role="controlgroup" data-type="horizontal">
+                            <a id="createBill" href="javascript:void(0)" onClick="create_table_list_function();" data-role="button" data-corners="false" data-inline="true" data-mini="true" class="ui-page-theme-a ui-btn menu_header_menu_button_width"><span class="menu_font_size">开台</span></a>
+                            <a id="btn_logout" href="javascript:void(0)" onClick="logout_function();" data-role="button" data-corners="false" data-inline="true" data-mini="true" class="ui-page-theme-a ui-btn menu_header_menu_button_width"><span class="menu_font_size">登出</span></a>
+                        </div>
                     </div>
                 </div>
-            </div>
         
-			<div class="ui-content" align="center">
                 <div class="ui-grid-d slot">
                     <div class="ui-block-a" data-mini="true">
                         <div data-role="fieldcontain">
@@ -96,13 +97,13 @@
                     </div>
                     <div class="ui-block-e">
                         <div data-role="fieldcontain">
-                            <a id="orderPanel" href="javascript:void(0)" onClick="order_panel();" rel="external" data-ajax="false" data-role="button" data-corners="false" data-theme="g" data-icon="check" data-inline="true" data-mini="true" class="menu_header_menu_order_pannel_button_width"><span class="menu_font_size">已选菜肴</span></a>
+                            <a id="orderPanel" href="javascript:void(0)" onClick="order_panel();" rel="external" data-ajax="false" data-role="button" data-corners="false" data-icon="check" data-inline="true" data-mini="true" class="ui-page-theme-a ui-btn menu_header_menu_order_pannel_button_width"><span class="menu_font_size">已选菜肴</span></a>
                         </div>
                     </div>
                 </div>
 				<!-- Jssor Slider Begin -->
 				<!-- You can move inline styles (except 'top', 'left', 'width' and 'height') to css file or css block. -->
-				<div id="slider1_container" style="position: relative; width: 560px; height: 75px;">
+				<div id="slider1_container" style="position: relative; width: 560px; height: 60px;">
                         
 				</div>
 				<!-- Jssor Slider End -->
@@ -141,7 +142,7 @@
                             </tr>
                             <tr>
                                 <th>
-                                    <a id="confirm" class="ui-btn-right ui-btn ui-shadow ui-mini ui-btn-inline ui-btn-up-f condiment_button" data-corners="false" data-inline="true" data-mini="true" data-theme="f" data-role="button" data-shadow="true" data-iconshadow="true" data-wrapperels="span" onClick="create_order_item_function();">
+                                    <a id="confirm" data-corners="false" data-inline="true" data-mini="true" data-theme="f" data-role="button" data-shadow="true" data-iconshadow="true" data-wrapperels="span" onClick="create_order_item_function();">
                                         <span class="ui-btn-inner">
                                             <span class="ui-btn-text">确定</span>
                                         </span>
@@ -149,7 +150,7 @@
 
                                     &nbsp;&nbsp;
 
-                                    <a id="cancel" data-rel="back" class="ui-btn-right ui-btn ui-shadow ui-mini ui-btn-inline ui-btn-up-f condiment_button" data-corners="false" data-inline="true" data-mini="true" data-theme="f" data-role="button" data-shadow="true" data-iconshadow="true" data-wrapperels="span">
+                                    <a id="cancel" data-rel="back" data-corners="false" data-inline="true" data-mini="true" data-theme="f" data-role="button" data-shadow="true" data-iconshadow="true" data-wrapperels="span">
                                         <span class="ui-btn-inner">
                                             <span class="ui-btn-text">取消</span>
                                         </span>
@@ -159,64 +160,6 @@
                         </thead>
                     </table>
                 </div>
-
-                <br />
-
-                <div data-role="popup" id="popup_table_container">
-                    <a href="#" data-rel="back" data-role="button" data-theme="a" data-icon="delete" data-iconpos="notext" class="ui-btn-left">Close</a>
-                    <div id="table_container" class="ui-content" align="center">
-                
-                    </div>
-                </div>
-
-                <div data-role="popup" id="popupBasic_orderPannel">
-                    <a href="#" data-rel="back" data-role="button" data-theme="a" data-icon="delete" data-iconpos="notext" class="ui-btn-left">Close</a>
-                    <table data-role="table" id="Table1" data-mode="" class="ui-responsive condiment_tbl">
-                        <thead>
-                            <tr>
-                                <th style="text-align:center;">
-                                    删除
-                                </th>
-                            </tr>
-                            <tr>
-                                <th>
-                                    请输入菜品数量: &nbsp;&nbsp; <input type="text" class="menu_input_box" id="Text1" value="" data-role="none" data-mini="true" data-theme="b" data-corners="false">
-                                </th>
-                            </tr>
-                            <tr>
-                                <th>
-                                    <span id="Span1" class="condiment_title"></span>
-                                    <span id="Span2" class="condiment_price"></span>
-                                </th>
-                            </tr>
-                            <tr>
-                                <th>
-                                    &nbsp;
-                                    <input type="hidden" class="menu_input_box" id="item_cd">
-                                    <input type="hidden" class="menu_input_box" id="order_seq_no">
-                                </th>
-                            </tr>
-                            <tr>
-                                <th>
-                                    <a id="btn_confirm_delete_order" class="ui-btn-right ui-btn ui-shadow ui-mini ui-btn-inline ui-btn-up-f condiment_button" data-corners="false" data-inline="true" data-mini="true" data-theme="f" data-role="button" data-shadow="true" data-iconshadow="true" data-wrapperels="span" onClick="void_order_item_function();">
-                                        <span class="ui-btn-inner">
-                                            <span class="ui-btn-text">确定</span>
-                                        </span>
-                                    </a> 
-
-                                    &nbsp;&nbsp;
-
-                                    <a id="btn_confirm_cancel_order" data-rel="back" class="ui-btn-right ui-btn ui-shadow ui-mini ui-btn-inline ui-btn-up-f condiment_button" data-corners="false" data-inline="true" data-mini="true" data-theme="f" data-role="button" data-shadow="true" data-iconshadow="true" data-wrapperels="span">
-                                        <span class="ui-btn-inner">
-                                            <span class="ui-btn-text">取消</span>
-                                        </span>
-                                    </a> 
-                                </th>
-                            </tr>    
-                        </thead>
-                    </table>
-                </div>
-
 			</div>
             <br />
         </div>
@@ -234,14 +177,14 @@
 <script type="text/javascript">
     var table_list_arr = [];
     var table_descs_arr = [];
+    var item_info = [];
+    var item_info_cd = [];
 
     function order_panel() {
-        $("#popup_table_container").popup("close");
-        var select_get_table_bill_order_itemu = $('#table_container');
-        select_get_table_bill_order_itemu.html('');
-        select_get_table_bill_order_itemu.html('<br/><br/>');
-        $("#table_container").trigger("create");
-        get_table_bill_order_item_function();
+        localStorage["item_info"] = JSON.stringify(item_info);
+        localStorage["item_info_cd"] = JSON.stringify(item_info_cd);
+        
+        window.location.href = "order_panel.html";
     }
 
     function pass_order(item_cd, descs, item_desc, uom_cd, picture_name, visitor_price, member_price, room_price, staff_price, stockstatus, customerType, item_price, by_weight) {
@@ -274,10 +217,24 @@
 
     function change_major(major_cd) {
         var previuos_major_cd = localStorage.getItem('mealmajor');
-        $("#" + previuos_major_cd).removeClass('onselect_menu_type_style');
-
+        //$("#" + previuos_major_cd).removeClass('onselect_menu_type_style');
+        //$("#" + previuos_major_cd).css('background', '#f9f9f9');
+        $("#" + previuos_major_cd).css({
+            background: '#f9f9f9',
+            'text-decoration': 'none',
+            border: 0
+        });
+        
         localStorage.setItem("mealmajor", major_cd);
-        $("#" + major_cd).addClass('onselect_menu_type_style');
+        //$("#" + major_cd).addClass('onselect_menu_type_style');
+        //$("#" + major_cd).css('background', '#BF6C0E');
+        $("#" + major_cd).css({
+            color: '#000000',
+            background: '#BF6C0E',
+            'text-decoration': 'none',
+            border: 0
+        });
+
         if (major_cd == "Salable") {
             getoutlet_meal_popular_menu();
         } else {
@@ -298,7 +255,7 @@
     function getoutlet_meal_majorList() {
         var outlet = localStorage.getItem('outlet');
         var mealperiod = localStorage.getItem('mealperiod');
-        var wsUrl_get_outlet_meal_major_list = "http://175.139.183.94:1002/webservice_posv5/n_webservice_posv5.asmx?op=of_get_outlet_meal_major";
+        var wsUrl_get_outlet_meal_major_list = "http://localhost/webservice_posv5/n_webservice_posv5.asmx?op=of_get_outlet_meal_major";
 
         var soapRequest_get_outlet_meal_major_list =
             '<?xml version="1.0" encoding="utf-8"?> \
@@ -344,14 +301,14 @@
 
                 outlet_meal_major_list_collection.push('<!-- Slides Container -->');
                 outlet_meal_major_list_collection.push('<div u="slides" id="menuPanel" style="cursor: move; position: absolute; width: 470px; height:55px; overflow: hidden; margin: 0px 45px 0px 35px;">');
-                outlet_meal_major_list_collection.push('<div><a id="Salable" data-role="button" class="menu_type_style" href="javascript:void(0)" onClick="change_major(\'Salable\');"><span class="menu_type_size" >热销菜品</span></a></div>');
+                outlet_meal_major_list_collection.push('<div><a id="Salable" data-role="button" class="ui-page-theme-a ui-btn menu_type_style" href="javascript:void(0)" onClick="change_major(\'Salable\');"><span class="menu_type_size" >热销菜品</span></a></div>');
 							
                 $.each(parse_strjson_get_outlet_meal_major_list['ds_pm_major']['ds_pm_major_row'], function () {
                     //var outlet_meal_major_list = '<option value="' + this['major_cd']['#text'] + '">' + this['desc']['#text'] + '</option>';
                     if (count_mealmajor == 0) {
                         sel_mealmajor = $.trim(this['major_cd']['#text']);
                     }
-                    var outlet_meal_major_list = '<div ><a id="' + $.trim(this['major_cd']['#text']) + '" data-role="button" class="menu_type_style" href="javascript:void(0)" onClick="change_major(\'' + this['major_cd']['#text'] + '\')"><span class="menu_type_size">' + this['descs']['#text'] + '</span></a></div>';
+                    var outlet_meal_major_list = '<div ><a id="' + $.trim(this['major_cd']['#text']) + '" data-role="button" class="ui-page-theme-a ui-btn menu_type_style" href="javascript:void(0)" onClick="change_major(\'' + this['major_cd']['#text'] + '\')"><span class="menu_type_size">' + this['descs']['#text'] + '</span></a></div>';
                     outlet_meal_major_list_collection.push(outlet_meal_major_list);
                     count_mealmajor++;
                 });
@@ -374,7 +331,16 @@
                 var jssor_slider1 = new $JssorSlider$("slider1_container", options);
 
                 localStorage.setItem("mealmajor", sel_mealmajor);
-                $("#" + sel_mealmajor).addClass('onselect_menu_type_style');
+                //$("#" + sel_mealmajor).addClass('onselect_menu_type_style');
+                //$("#" + sel_mealmajor).css('background', '#BF6C0E');
+                $("#" + sel_mealmajor).css({
+                    color: '#000000',
+                    background: '#BF6C0E',
+                    'text-decoration': 'none',
+                    border: 0
+                });
+
+
                 getoutlet_meal_major_menu();
             },
             error: function (data, status) {
@@ -389,7 +355,7 @@
         var outlet = localStorage.getItem('outlet');
         var mealperiod = localStorage.getItem('mealperiod');
         var mealmajor = localStorage.getItem('mealmajor');
-        var wsUrl_get_outlet_meal_major_menu = "http://175.139.183.94:1002/webservice_posv5/n_webservice_posv5.asmx?op=of_get_outlet_meal_major_menu";
+        var wsUrl_get_outlet_meal_major_menu = "http://localhost/webservice_posv5/n_webservice_posv5.asmx?op=of_get_outlet_meal_major_menu";
 
         var soapRequest_get_outlet_meal_major_menu =
             '<?xml version="1.0" encoding="utf-8"?> \
@@ -469,8 +435,8 @@
 
                             var outlet_meal_major_menu = '<div class="ui-block-' + div_block + '" id="div_' + item_cd + '"> \
                             <div data-role="controlgroup" data-type="horizontal"> \
-                            <a href="javascript:void(0)" onClick="pass_order(\'' + item_cd + '\', \'' + descs + '\', \'' + item_desc + '\', \'' + uom_cd + '\', \'' + picture_name + '\', \'' + visitor_price + '\', \'' + member_price + '\', \'' + room_price + '\', \'' + staff_price + '\', \'' + stockstatus + '\', \'' + SelectedcustomerType + '\', \'' + parseFloat(item_price).toFixed(2) + '\', \'' + by_weight + '\');" data-role="button" class="menu_width"><span class="menu_font_size">' + descs + '</span></a> \
-                            <a href="javascript:void(0)" onClick="pass_order(\'' + item_cd + '\', \'' + descs + '\', \'' + item_desc + '\', \'' + uom_cd + '\', \'' + picture_name + '\', \'' + visitor_price + '\', \'' + member_price + '\', \'' + room_price + '\', \'' + staff_price + '\', \'' + stockstatus + '\', \'' + SelectedcustomerType + '\', \'' + parseFloat(item_price).toFixed(2) + '\', \'' + by_weight + '\');" data-role="button" class="menu_price_width"><span class="menu_font_size">' + parseFloat(item_price).toFixed(2) + ' /' + uom_cd + '</span></a> \
+                            <a href="javascript:void(0)" onClick="pass_order(\'' + item_cd + '\', \'' + descs + '\', \'' + item_desc + '\', \'' + uom_cd + '\', \'' + picture_name + '\', \'' + visitor_price + '\', \'' + member_price + '\', \'' + room_price + '\', \'' + staff_price + '\', \'' + stockstatus + '\', \'' + SelectedcustomerType + '\', \'' + parseFloat(item_price).toFixed(2) + '\', \'' + by_weight + '\');" data-role="button" class="ui-page-theme-a ui-btn menu_width"><span class="menu_font_size">' + descs + '</span></a> \
+                            <a href="javascript:void(0)" onClick="pass_order(\'' + item_cd + '\', \'' + descs + '\', \'' + item_desc + '\', \'' + uom_cd + '\', \'' + picture_name + '\', \'' + visitor_price + '\', \'' + member_price + '\', \'' + room_price + '\', \'' + staff_price + '\', \'' + stockstatus + '\', \'' + SelectedcustomerType + '\', \'' + parseFloat(item_price).toFixed(2) + '\', \'' + by_weight + '\');" data-role="button" class="ui-page-theme-a ui-btn menu_price_width"><span class="menu_font_size">' + parseFloat(item_price).toFixed(2) + ' /' + uom_cd + '</span></a> \
                             </div> \
                             </div>';
 
@@ -505,8 +471,8 @@
                         
                         var outlet_meal_major_menu = '<div class="ui-block-a" id="div_' + item_cd + '"> \
                             <div data-role="controlgroup" data-type="horizontal"> \
-                            <a href="javascript:void(0)" onClick="pass_order(\'' + item_cd + '\', \'' + descs + '\', \'' + item_desc + '\', \'' + uom_cd + '\', \'' + picture_name + '\', \'' + visitor_price + '\', \'' + member_price + '\', \'' + room_price + '\', \'' + staff_price + '\', \'' + stockstatus + '\', \'' + SelectedcustomerType + '\', \'' + parseFloat(item_price).toFixed(2) + '\', \'' + by_weight + '\');" data-role="button" class="menu_width"><span class="menu_font_size">' + descs + '</span></a> \
-                            <a href="javascript:void(0)" onClick="pass_order(\'' + item_cd + '\', \'' + descs + '\', \'' + item_desc + '\', \'' + uom_cd + '\', \'' + picture_name + '\', \'' + visitor_price + '\', \'' + member_price + '\', \'' + room_price + '\', \'' + staff_price + '\', \'' + stockstatus + '\', \'' + SelectedcustomerType + '\', \'' + parseFloat(item_price).toFixed(2) + '\', \'' + by_weight + '\');" data-role="button" class="menu_price_width"><span class="menu_font_size">' + parseFloat(item_price).toFixed(2) + ' /' + uom_cd + '</span></a> \
+                            <a href="javascript:void(0)" onClick="pass_order(\'' + item_cd + '\', \'' + descs + '\', \'' + item_desc + '\', \'' + uom_cd + '\', \'' + picture_name + '\', \'' + visitor_price + '\', \'' + member_price + '\', \'' + room_price + '\', \'' + staff_price + '\', \'' + stockstatus + '\', \'' + SelectedcustomerType + '\', \'' + parseFloat(item_price).toFixed(2) + '\', \'' + by_weight + '\');" data-role="button" class="ui-page-theme-a ui-btn menu_width"><span class="menu_font_size">' + descs + '</span></a> \
+                            <a href="javascript:void(0)" onClick="pass_order(\'' + item_cd + '\', \'' + descs + '\', \'' + item_desc + '\', \'' + uom_cd + '\', \'' + picture_name + '\', \'' + visitor_price + '\', \'' + member_price + '\', \'' + room_price + '\', \'' + staff_price + '\', \'' + stockstatus + '\', \'' + SelectedcustomerType + '\', \'' + parseFloat(item_price).toFixed(2) + '\', \'' + by_weight + '\');" data-role="button" class="ui-page-theme-a ui-btn menu_price_width"><span class="menu_font_size">' + parseFloat(item_price).toFixed(2) + ' /' + uom_cd + '</span></a> \
                             </div> \
                             </div>';
 
@@ -529,7 +495,7 @@
         var SelectedcustomerType = $("#customerType :selected").val();
         var outlet = localStorage.getItem('outlet');
         var mealperiod = localStorage.getItem('mealperiod');
-        var wsUrl_get_outlet_meal_popular_menu = "http://175.139.183.94:1002/webservice_posv5/n_webservice_posv5.asmx?op=of_get_outlet_meal_popular_menu";
+        var wsUrl_get_outlet_meal_popular_menu = "http://localhost/webservice_posv5/n_webservice_posv5.asmx?op=of_get_outlet_meal_popular_menu";
 
         var soapRequest_get_outlet_meal_popular_menu =
             '<?xml version="1.0" encoding="utf-8"?> \
@@ -604,13 +570,16 @@
                             var member_price = this['member_price']['#text'];
                             var room_price = this['room_price']['#text'];
                             var staff_price = this['staff_price']['#text'];
-                            var by_weight = this['by_weight']['#text'];
+                            var by_weight = "";
+                            if (typeof this['by_weight'] != 'undefined') {
+                                by_weight = this['by_weight']['#text'];
+                            }
                             var stockstatus = "";
 
                             var outlet_meal_popular_menu = '<div class="ui-block-' + div_block + '" id="div_' + this['item_cd']['#text'] + '"> \
                             <div data-role="controlgroup" data-type="horizontal"> \
-                            <a href="javascript:void(0)" onClick="pass_order(\'' + item_cd + '\', \'' + descs + '\', \'' + item_desc + '\', \'' + uom_cd + '\', \'' + picture_name + '\', \'' + visitor_price + '\', \'' + member_price + '\', \'' + room_price + '\', \'' + staff_price + '\', \'' + stockstatus + '\', \'' + SelectedcustomerType + '\', \'' + parseFloat(item_price).toFixed(2) + '\', \'' + by_weight + '\');" data-role="button" class="menu_width"><span class="menu_font_size">' + this['descs']['#text'] + '</span></a> \
-                            <a href="javascript:void(0)" onClick="pass_order(\'' + item_cd + '\', \'' + descs + '\', \'' + item_desc + '\', \'' + uom_cd + '\', \'' + picture_name + '\', \'' + visitor_price + '\', \'' + member_price + '\', \'' + room_price + '\', \'' + staff_price + '\', \'' + stockstatus + '\', \'' + SelectedcustomerType + '\', \'' + parseFloat(item_price).toFixed(2) + '\', \'' + by_weight + '\');" data-role="button" class="menu_price_width"><span class="menu_font_size">' + parseFloat(item_price).toFixed(2) + ' /' + this['uom_cd']['#text'] + '</span></a> \
+                            <a href="javascript:void(0)" onClick="pass_order(\'' + item_cd + '\', \'' + descs + '\', \'' + item_desc + '\', \'' + uom_cd + '\', \'' + picture_name + '\', \'' + visitor_price + '\', \'' + member_price + '\', \'' + room_price + '\', \'' + staff_price + '\', \'' + stockstatus + '\', \'' + SelectedcustomerType + '\', \'' + parseFloat(item_price).toFixed(2) + '\', \'' + by_weight + '\');" data-role="button" class="ui-page-theme-a ui-btn menu_width"><span class="menu_font_size">' + this['descs']['#text'] + '</span></a> \
+                            <a href="javascript:void(0)" onClick="pass_order(\'' + item_cd + '\', \'' + descs + '\', \'' + item_desc + '\', \'' + uom_cd + '\', \'' + picture_name + '\', \'' + visitor_price + '\', \'' + member_price + '\', \'' + room_price + '\', \'' + staff_price + '\', \'' + stockstatus + '\', \'' + SelectedcustomerType + '\', \'' + parseFloat(item_price).toFixed(2) + '\', \'' + by_weight + '\');" data-role="button" class="ui-page-theme-a ui-btn menu_price_width"><span class="menu_font_size">' + parseFloat(item_price).toFixed(2) + ' /' + this['uom_cd']['#text'] + '</span></a> \
                             </div> \
                             </div>';
 
@@ -646,8 +615,8 @@
 
                         var outlet_meal_popular_menu = '<div class="ui-block-a" id="div_' + parse_strjson_get_outlet_meal_popular_menu['ds_pm_popular_item_list']['ds_pm_popular_item_list_row']['item_cd']['#text'] + '"> \
                             <div data-role="controlgroup" data-type="horizontal"> \
-                            <a href="javascript:void(0)" onClick="pass_order(\'' + item_cd + '\', \'' + descs + '\', \'' + item_desc + '\', \'' + uom_cd + '\', \'' + picture_name + '\', \'' + visitor_price + '\', \'' + member_price + '\', \'' + room_price + '\', \'' + staff_price + '\', \'' + stockstatus + '\', \'' + SelectedcustomerType + '\', \'' + parseFloat(item_price).toFixed(2) + '\', \'' + by_weight + '\');" data-role="button" class="menu_width"><span class="menu_font_size">' + parse_strjson_get_outlet_meal_popular_menu['ds_pm_popular_item_list']['ds_pm_popular_item_list_row']['descs']['#text'] + '</span></a> \
-                            <a href="javascript:void(0)" onClick="pass_order(\'' + item_cd + '\', \'' + descs + '\', \'' + item_desc + '\', \'' + uom_cd + '\', \'' + picture_name + '\', \'' + visitor_price + '\', \'' + member_price + '\', \'' + room_price + '\', \'' + staff_price + '\', \'' + stockstatus + '\', \'' + SelectedcustomerType + '\', \'' + parseFloat(item_price).toFixed(2) + '\', \'' + by_weight + '\');" data-role="button" class="menu_price_width"><span class="menu_font_size">' + parseFloat(item_price).toFixed(2) + ' /' + parse_strjson_get_outlet_meal_popular_menu['ds_pm_popular_item_list']['ds_pm_popular_item_list_row']['uom_cd']['#text'] + '</span></a> \
+                            <a href="javascript:void(0)" onClick="pass_order(\'' + item_cd + '\', \'' + descs + '\', \'' + item_desc + '\', \'' + uom_cd + '\', \'' + picture_name + '\', \'' + visitor_price + '\', \'' + member_price + '\', \'' + room_price + '\', \'' + staff_price + '\', \'' + stockstatus + '\', \'' + SelectedcustomerType + '\', \'' + parseFloat(item_price).toFixed(2) + '\', \'' + by_weight + '\');" data-role="button" class="ui-page-theme-a ui-btn menu_width"><span class="menu_font_size">' + parse_strjson_get_outlet_meal_popular_menu['ds_pm_popular_item_list']['ds_pm_popular_item_list_row']['descs']['#text'] + '</span></a> \
+                            <a href="javascript:void(0)" onClick="pass_order(\'' + item_cd + '\', \'' + descs + '\', \'' + item_desc + '\', \'' + uom_cd + '\', \'' + picture_name + '\', \'' + visitor_price + '\', \'' + member_price + '\', \'' + room_price + '\', \'' + staff_price + '\', \'' + stockstatus + '\', \'' + SelectedcustomerType + '\', \'' + parseFloat(item_price).toFixed(2) + '\', \'' + by_weight + '\');" data-role="button" class="ui-page-theme-a ui-btn menu_price_width"><span class="menu_font_size">' + parseFloat(item_price).toFixed(2) + ' /' + parse_strjson_get_outlet_meal_popular_menu['ds_pm_popular_item_list']['ds_pm_popular_item_list_row']['uom_cd']['#text'] + '</span></a> \
                             </div> \
                             </div>';
 
@@ -676,7 +645,7 @@
 
         var outlet = localStorage.getItem('outlet');
         var location = '%';
-        var wsUrl_get_table_list = "http://175.139.183.94:1002/webservice_posv5/n_webservice_posv5.asmx?op=of_get_table_list";
+        var wsUrl_get_table_list = "http://localhost/webservice_posv5/n_webservice_posv5.asmx?op=of_get_table_list";
             
         var soapRequest_get_table_list =
             '<?xml version="1.0" encoding="utf-8"?> \
@@ -738,7 +707,7 @@
         var outlet = localStorage.getItem('outlet');
         var SelectedsearchTable = $("#searchTable :selected").val();
         
-        var wsUrl_get_table_bill_list = "http://175.139.183.94:1002/webservice_posv5/n_webservice_posv5.asmx?op=of_get_table_bill";
+        var wsUrl_get_table_bill_list = "http://localhost/webservice_posv5/n_webservice_posv5.asmx?op=of_get_table_bill";
 
         var soapRequest_get_table_bill_list =
             '<?xml version="1.0" encoding="utf-8"?> \
@@ -833,7 +802,7 @@
         var username = localStorage.getItem('username');
 
         if ($.isNumeric(customerNumber) && SelectedsearchTable > 0) {
-            var wsUrl_get_create_table_list_list = "http://175.139.183.94:1002/webservice_posv5/n_webservice_posv5.asmx?op=of_create_table_bill";
+            var wsUrl_get_create_table_list_list = "http://localhost/webservice_posv5/n_webservice_posv5.asmx?op=of_create_table_bill";
 
             var soapRequest_get_create_table_list_list =
                 '<?xml version="1.0" encoding="utf-8"?> \
@@ -946,7 +915,7 @@
         var SelectedOutletCode = localStorage.getItem('outlet');
         var SelectedStationCode = localStorage.getItem('station');
 
-        var wsUrl_get_logout_list = "http://175.139.183.94:1002/webservice_posv5/n_webservice_posv5.asmx?op=of_logout";
+        var wsUrl_get_logout_list = "http://localhost/webservice_posv5/n_webservice_posv5.asmx?op=of_logout";
 
         var soapRequest_get_logout_list =
             '<?xml version="1.0" encoding="utf-8"?> \
@@ -1009,65 +978,38 @@
 
                 var total_price = txtCount * item_price;
 
-                var item_info = '<?xml version="1.0" encoding="UTF-16LE" standalone="no"?> \
-                    <ds_pt_order> \
-                        <ds_pt_order_row> \
-                            <item_cd>' + item_item_cd + '</item_cd> \
-                            <descs>' + item_descs + '</descs> \
-                            <price>' + item_price + '</price> \
-                            <qty>' + txtCount + '</qty> \
-                            <trx_amt>' + total_price + '</trx_amt> \
-                            <weight>' + by_weight + '</weight> \
-                            <takeaway>N</takeaway> \
-                            <remark /> \
-                            <remark_group /> \
-                        </ds_pt_order_row>  \
-                    </ds_pt_order>';
+                var exist_item_info = item_info;
+                var exist_item_info_cd = item_info_cd;
+                
+                if (jQuery.inArray(item_item_cd, exist_item_info_cd) == "-1") {
+                    item_info_cd.push(item_item_cd);
+                    item_info[item_item_cd] = [];
 
-                var item_info_encoded = $('<div/>').text(item_info).html();
+                    item_info[item_item_cd].push({
+                        "item_cd": item_item_cd,
+                        "descs": item_descs,
+                        "price": item_price,
+                        "qty": txtCount,
+                        "trx_amt": total_price,
+                        "weight": by_weight,
+                        "takeaway": "N",
+                        "tax_surcharge": "0",
+                        "total_tax_amt": "0"
+                    });
+                } else {
+                    var new_qty = parseFloat(txtCount) + parseFloat(item_info[item_item_cd][0]['qty']);
+                    var new_trx_amt = parseFloat(total_price) + parseFloat(item_info[item_item_cd][0]['trx_amt']);
+                    var new_weight = parseFloat(by_weight) + parseFloat(item_info[item_item_cd][0]['weight']);
+                    item_info[item_item_cd][0]['qty'] = new_qty;
+                    item_info[item_item_cd][0]['trx_amt'] = new_trx_amt;
+                    item_info[item_item_cd][0]['weight'] = new_weight;
+                }
 
+                var total_order_items = parseFloat(txtCount) + parseFloat(localStorage.getItem('total_order_items'));
 
-                var wsUrl_get_create_order_item_list = "http://175.139.183.94:1002/webservice_posv5/n_webservice_posv5.asmx?op=of_create_order_item";
-
-                var soapRequest_get_create_order_item_list =
-                    '<?xml version="1.0" encoding="utf-8"?> \
-				        <soap:Envelope xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/"> \
-				          <soap:Body> \
-					        <of_create_order_item xmlns="http://tempurl.org"> \
-					          <as_outlet_cd>' + outlet + '</as_outlet_cd> \
-					          <as_station_cd>' + station + '</as_station_cd> \
-					          <as_meal_cd>' + mealperiod + '</as_meal_cd> \
-					          <as_bill_no>' + bill_no + '</as_bill_no> \
-					          <adt_doc_date>2014-02-25</adt_doc_date> \
-					          <as_item_info>' + item_info_encoded + '</as_item_info> \
-					          <ai_shift>1</ai_shift> \
-					          <as_logid>' + username + '</as_logid> \
-					        </of_create_order_item> \
-				          </soap:Body> \
-				        </soap:Envelope>';
-
-                $.ajax({
-                    type: "POST",
-                    url: wsUrl_get_create_order_item_list,
-                    contentType: "text/xml",
-                    dataType: "xml",
-                    data: soapRequest_get_create_order_item_list,
-                    success: function (xmlHttpRequest, status, req) {
-                        // creates object instantce of XMLtoJSON
-                        var xml2json = new XMLtoJSON();
-                        var decoded_get_create_order_item_list = $("<div/>").html(req.responseText).text();
-
-                        if (decoded_get_create_order_item_list == 0) {
-                            alert('点菜成功');
-                            $("#div_order").popup("close");
-                        } else {
-                            alert(decoded_get_create_order_item_list);
-                        }
-                    },
-                    error: function (data, status) {
-                        alert(data.responseText);
-                    }
-                });
+                localStorage.setItem("total_order_items", total_order_items);
+                alert('点菜成功');
+                $("#div_order").popup("close");
             }
         } else {
             alert("请输入份数");
@@ -1075,448 +1017,20 @@
     }
     //End Function for order
 
-    //Function for order pannel
-    function open_del_popup(item_cd, order_seq_no, price, descs) {
-
-        $("#item_cd").val(item_cd);
-        $("#order_seq_no").val(order_seq_no);
-        $("#condiment_title").html(descs);
-        $("#condiment_price").html('RM ' + price);
-        $("#popupBasic_orderPannel").popup("open");
-    }
-
-    function void_order_item_function() {
-        var outlet = localStorage.getItem('outlet');
-        var bill_no = localStorage.getItem('bill_no');
-        var username = localStorage.getItem('username');
-        var password = localStorage.getItem('password');
-        var txtCount = $("#txtCount").val();
-        var item_cd = $("#item_cd").val();
-        var order_seq_no = $("#order_seq_no").val();
-
-        var wsUrl_get_void_order_item_list = "http://175.139.183.94:1002/webservice_posv5/n_webservice_posv5.asmx?op=of_void_order_item";
-
-        var soapRequest_get_void_order_item_list =
-            '<?xml version="1.0" encoding="utf-8"?> \
-			<soap:Envelope xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/"> \
-			  <soap:Body> \
-				<of_void_order_item xmlns="http://tempurl.org"> \
-				  <as_outlet_cd>' + outlet + '</as_outlet_cd> \
-				  <as_bill_no>' + bill_no + '</as_bill_no> \
-				  <adc_item_cd>' + item_cd + '</adc_item_cd> \
-				  <adc_order_seq_no>' + order_seq_no + '</adc_order_seq_no> \
-				  <adc_void_qty>' + txtCount + '</adc_void_qty> \
-				  <as_reason_cd>VI</as_reason_cd> \
-				  <as_logid>' + username + '</as_logid> \
-				  <as_pwd>' + password + '</as_pwd> \
-				</of_void_order_item> \
-			  </soap:Body> \
-			</soap:Envelope>';
-
-        $.ajax({
-            type: "POST",
-            url: wsUrl_get_void_order_item_list,
-            contentType: "text/xml",
-            dataType: "xml",
-            data: soapRequest_get_void_order_item_list,
-            success: function (xmlHttpRequest, status, req) {
-                var outlet_void_order_item_collection = [];
-                var outlet_void_order_item_join = "";
-                var count_bill_items = 1;
-                var total_bill_price = 0;
-
-                // creates object instantce of XMLtoJSON
-                var xml2json = new XMLtoJSON();
-                var decoded_void_order_item = $("<div/>").html(req.responseText).text();
-                var strjson_void_order_item = xml2json.fromStr(decoded_void_order_item, 'string');
-                //var parse_strjson_void_order_item = jQuery.parseJSON(strjson_void_order_item);
-                //var void_order_item = $('#table_container');
-                if (strjson_void_order_item == "Invalid XML format") {
-                    if (decoded_void_order_item == 0) {
-                        alert("删除成功");
-                        $("#txtCount").val("");
-                        $("#popupBasic_orderPannel").popup("close");
-                        get_table_bill_order_item_function();
-                    }
-                } else {
-                    alert("删除失败");
-                }
-
-            },
-            error: function (data, status) {
-                alert(data.responseText);
-            }
-
-        });
-    }
-
-    function get_table_bill_order_item_function() {
-
-        var outlet = localStorage.getItem('outlet');
-        var bill_no = localStorage.getItem('bill_no');
-        var SelectedsearchTable = localStorage.getItem('SelectedsearchTable');
-
-        var wsUrl_get_get_table_bill_order_item_list = "http://175.139.183.94:1002/webservice_posv5/n_webservice_posv5.asmx?op=of_get_table_bill_order_item";
-
-        var soapRequest_get_get_table_bill_order_item_list =
-            '<?xml version="1.0" encoding="utf-8"?> \
-			<soap:Envelope xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/"> \
-			  <soap:Body> \
-				<of_get_table_bill_order_item xmlns="http://tempurl.org"> \
-				  <as_outlet_cd>' + outlet + '</as_outlet_cd> \
-				  <as_bill_no>' + bill_no + '</as_bill_no> \
-				</of_get_table_bill_order_item> \
-			  </soap:Body> \
-			</soap:Envelope>';
-
-        $.ajax({
-            type: "POST",
-            url: wsUrl_get_get_table_bill_order_item_list,
-            contentType: "text/xml",
-            dataType: "xml",
-            data: soapRequest_get_get_table_bill_order_item_list,
-            success: function (xmlHttpRequest, status, req) {
-                var outlet_get_table_bill_order_item_collection = [];
-                var outlet_get_table_bill_order_item_finalize = [];
-                var available_order_items = [];
-                var outlet_get_table_bill_order_item_join = "";
-                var total_items = 0;
-                var count_bill_items = 1;
-                var total_bill_price = 0;
-
-                //START display bills date time purpose
-                var bill_date = new Date();
-                var twoDigitMonth = ((bill_date.getMonth().length + 1) === 1) ? (bill_date.getMonth() + 1) : '0' + (bill_date.getMonth() + 1);
-                var bills_date = bill_date.getFullYear() + '-' + twoDigitMonth + '-' + bill_date.getDate();
-                var bills_hours = bill_date.getHours();
-                var am_pm = "AM";
-                if (bills_hours > 12) {
-                    bills_hours = bills_hours - 12;
-                    am_pm = 'PM';
-                }
-                var bills_time = bills_hours + ":" + bill_date.getMinutes() + ":" + bill_date.getSeconds() + " " + am_pm;
-                //END display bills date time purpose
-
-
-                // creates object instantce of XMLtoJSON
-                var xml2json = new XMLtoJSON();
-                var decoded_get_table_bill_order_item = $("<div/>").html(req.responseText).text();
-                var strjson_get_table_bill_order_item = xml2json.fromStr(decoded_get_table_bill_order_item, 'string');
-                if (strjson_get_table_bill_order_item == "Invalid XML format") {
-
-                    outlet_get_table_bill_order_item_collection.push('<table data-role="table" id="my-table" class="ui-responsive">');
-                    outlet_get_table_bill_order_item_collection.push('<thead>');
-                    outlet_get_table_bill_order_item_collection.push('<tr class="orderPanelClass">');
-                    outlet_get_table_bill_order_item_collection.push('<th>');
-                    outlet_get_table_bill_order_item_collection.push('<span id="TableNum">');
-                    outlet_get_table_bill_order_item_collection.push('桌号: ' + SelectedsearchTable);
-                    outlet_get_table_bill_order_item_collection.push('</span>');
-                    outlet_get_table_bill_order_item_collection.push('</th>');
-                    outlet_get_table_bill_order_item_collection.push('<th colspan="6">');
-                    outlet_get_table_bill_order_item_collection.push('<span id="billNumber">');
-                    outlet_get_table_bill_order_item_collection.push('单号: ' + bill_no);
-                    outlet_get_table_bill_order_item_collection.push('</span>');
-                    outlet_get_table_bill_order_item_collection.push('</th>');
-                    outlet_get_table_bill_order_item_collection.push('<th style="float: right;">');
-                    outlet_get_table_bill_order_item_collection.push('<a class="ui-btn ui-btn-up-f ui-shadow ui-btn-corner-all ui-mini ui-btn-icon-notext" data-theme="f" data-iconpos="notext" data-icon="delete" data-mini="true" data-role="button" style="float: left;" data-rel="back" href="#" data-corners="true" data-shadow="true" data-iconshadow="true" data-wrapperels="span" title="Close">');
-                    outlet_get_table_bill_order_item_collection.push('<span class="ui-btn-inner">');
-                    outlet_get_table_bill_order_item_collection.push('<span class="ui-btn-text">');
-                    outlet_get_table_bill_order_item_collection.push('Close');
-                    outlet_get_table_bill_order_item_collection.push('</span>');
-                    outlet_get_table_bill_order_item_collection.push('<span class="ui-icon ui-icon-delete ui-icon-shadow">');
-                    outlet_get_table_bill_order_item_collection.push('</span>');
-                    outlet_get_table_bill_order_item_collection.push('</span>');
-                    outlet_get_table_bill_order_item_collection.push('</a>');
-                    outlet_get_table_bill_order_item_collection.push('</th>');
-                    outlet_get_table_bill_order_item_collection.push('</tr>');
-                    outlet_get_table_bill_order_item_collection.push('<tr id="beforeElement" class="orderPanelClass_totalItems">');
-                    outlet_get_table_bill_order_item_collection.push('<td colspan="8">');
-                    outlet_get_table_bill_order_item_collection.push('<div id="Div1" class="ui-grid-a">');
-                    outlet_get_table_bill_order_item_collection.push('<div class="ui-block-a boxMenu_price">');
-                    outlet_get_table_bill_order_item_collection.push('<span class="boxMenu_size">');
-                    outlet_get_table_bill_order_item_collection.push('已点数：');
-                    outlet_get_table_bill_order_item_collection.push('</span>');
-                    outlet_get_table_bill_order_item_collection.push('<span id="orderNumber" class="boxMenu_size">');
-                    outlet_get_table_bill_order_item_collection.push('0');
-                    outlet_get_table_bill_order_item_collection.push('</span>');
-                    outlet_get_table_bill_order_item_collection.push('</div>');
-                    outlet_get_table_bill_order_item_collection.push('<div class="ui-block-b boxMPa">');
-                    outlet_get_table_bill_order_item_collection.push('<span class="boxMenu_size">');
-                    outlet_get_table_bill_order_item_collection.push('时间：');
-                    outlet_get_table_bill_order_item_collection.push('</span>');
-                    outlet_get_table_bill_order_item_collection.push('<span id="time" class="boxMenu_size">');
-                    outlet_get_table_bill_order_item_collection.push(bills_date + " " + bills_time);
-                    outlet_get_table_bill_order_item_collection.push('</span>');
-                    outlet_get_table_bill_order_item_collection.push('<br></br>');
-                    outlet_get_table_bill_order_item_collection.push('</div>');
-                    outlet_get_table_bill_order_item_collection.push('</div>');
-                    outlet_get_table_bill_order_item_collection.push('</td>');
-                    outlet_get_table_bill_order_item_collection.push('</tr>');
-                    outlet_get_table_bill_order_item_collection.push('<tr class="orderPanelClass">');
-                    outlet_get_table_bill_order_item_collection.push('<th>编号</th>');
-                    outlet_get_table_bill_order_item_collection.push('<th>菜品名称<br />');
-                    outlet_get_table_bill_order_item_collection.push('菜品备注');
-                    outlet_get_table_bill_order_item_collection.push('</th>');
-                    outlet_get_table_bill_order_item_collection.push('<th>数量</th>');
-                    outlet_get_table_bill_order_item_collection.push('<th>单价</th>');
-                    outlet_get_table_bill_order_item_collection.push('<th>价格 <br />');
-                    outlet_get_table_bill_order_item_collection.push('附加费');
-                    outlet_get_table_bill_order_item_collection.push('</th>');
-                    outlet_get_table_bill_order_item_collection.push('<th>税</th>');
-                    outlet_get_table_bill_order_item_collection.push('<th>状态</th>');
-                    outlet_get_table_bill_order_item_collection.push('<th>删除<br />');
-                    outlet_get_table_bill_order_item_collection.push('修改备注');
-                    outlet_get_table_bill_order_item_collection.push('</th>');
-                    outlet_get_table_bill_order_item_collection.push('</tr>');
-                    outlet_get_table_bill_order_item_collection.push('</thead>');
-
-                } else {
-                    var parse_strjson_get_table_bill_order_item = jQuery.parseJSON(strjson_get_table_bill_order_item);
-                    var get_table_bill_order_item = $('#table_container');
-
-                    outlet_get_table_bill_order_item_collection.push('<table data-role="table" id="my-table" class="ui-responsive">');
-                    outlet_get_table_bill_order_item_collection.push('<thead>');
-                    outlet_get_table_bill_order_item_collection.push('<tr class="orderPanelClass">');
-                    outlet_get_table_bill_order_item_collection.push('<th>');
-                    outlet_get_table_bill_order_item_collection.push('<span id="TableNum">');
-                    outlet_get_table_bill_order_item_collection.push('桌号: ' + SelectedsearchTable);
-                    outlet_get_table_bill_order_item_collection.push('</span>');
-                    outlet_get_table_bill_order_item_collection.push('</th>');
-                    outlet_get_table_bill_order_item_collection.push('<th colspan="6">');
-                    outlet_get_table_bill_order_item_collection.push('<span id="billNumber">');
-                    outlet_get_table_bill_order_item_collection.push('单号: ' + bill_no);
-                    outlet_get_table_bill_order_item_collection.push('</span>');
-                    outlet_get_table_bill_order_item_collection.push('</th>');
-                    outlet_get_table_bill_order_item_collection.push('<th style="float: right;">');
-                    outlet_get_table_bill_order_item_collection.push('<a class="ui-btn ui-btn-up-f ui-shadow ui-btn-corner-all ui-mini ui-btn-icon-notext" data-theme="f" data-iconpos="notext" data-icon="delete" data-mini="true" data-role="button" style="float: left;" data-rel="back" href="#" data-corners="true" data-shadow="true" data-iconshadow="true" data-wrapperels="span" title="Close">');
-                    outlet_get_table_bill_order_item_collection.push('<span class="ui-btn-inner">');
-                    outlet_get_table_bill_order_item_collection.push('<span class="ui-btn-text">');
-                    outlet_get_table_bill_order_item_collection.push('Close');
-                    outlet_get_table_bill_order_item_collection.push('</span>');
-                    outlet_get_table_bill_order_item_collection.push('<span class="ui-icon ui-icon-delete ui-icon-shadow">');
-                    outlet_get_table_bill_order_item_collection.push('</span>');
-                    outlet_get_table_bill_order_item_collection.push('</span>');
-                    outlet_get_table_bill_order_item_collection.push('</a>');
-                    outlet_get_table_bill_order_item_collection.push('</th>');
-                    outlet_get_table_bill_order_item_collection.push('</tr>');
-                    outlet_get_table_bill_order_item_collection.push('<tr id="beforeElement" class="orderPanelClass_totalItems">');
-                    outlet_get_table_bill_order_item_collection.push('<td colspan="8">');
-
-
-                    if (typeof parse_strjson_get_table_bill_order_item['ds_pt_order_list']['ds_pt_order_list_row'][0] != 'undefined') {
-
-                        $.each(parse_strjson_get_table_bill_order_item['ds_pt_order_list']['ds_pt_order_list_row'], function () {
-                            var status = $.trim(this['status']['#text']);
-                            var order_seq_no = this['order_seq_no']['#text'];
-
-                            if (status == "A") {
-                                outlet_get_table_bill_order_item_finalize.push(order_seq_no);
-                                available_order_items[order_seq_no] = [];
-
-                                available_order_items[order_seq_no].push({
-                                    "item_cd": this['item_cd']['#text'],
-                                    "descs": this['descs']['#text'],
-                                    "qty": this['qty']['#text'],
-                                    "price": this['price']['#text'],
-                                    "trx_amt": this['trx_amt']['#text'],
-                                    "remark": this['remark']['#text'],
-                                    "status": this['status']['#text'],
-                                    "order_seq_no": this['order_seq_no']['#text'],
-                                    "weight": this['weight']['#text'],
-                                    "tax_surcharge": this['tax_surcharge']['#text'],
-                                    "total_tax_amt": this['total_tax_amt']['#text'],
-                                    "disc_amt": this['disc_amt']['#text']
-                                });
-                                total_items = total_items + parseFloat(this['qty']['#text']);
-                            } else if (status == "X") {
-                                var from_orderno = $.trim(this['from_orderno']['#text']);
-                                var canceled_qty = $.trim(this['qty']['#text']);
-                                var canceled_trx_amt = $.trim(this['trx_amt']['#text']);
-                                var original_trx_amt = available_order_items[from_orderno][0]['trx_amt'];
-                                var original_qty = available_order_items[from_orderno][0]['qty'];
-                                available_order_items[from_orderno][0]['trx_amt'] = parseFloat(original_trx_amt) + parseFloat(canceled_trx_amt);
-                                available_order_items[from_orderno][0]['qty'] = parseFloat(original_qty) + parseFloat(canceled_qty);
-                                total_items = total_items + parseFloat(this['qty']['#text']);
-                            }
-                        });
-
-                        outlet_get_table_bill_order_item_collection.push('<div id="Div1" class="ui-grid-a">');
-                        outlet_get_table_bill_order_item_collection.push('<div class="ui-block-a boxMenu_price">');
-                        outlet_get_table_bill_order_item_collection.push('<span class="boxMenu_size">');
-                        outlet_get_table_bill_order_item_collection.push('已点数：');
-                        outlet_get_table_bill_order_item_collection.push('</span>');
-                        outlet_get_table_bill_order_item_collection.push('<span id="orderNumber" class="boxMenu_size">');
-                        outlet_get_table_bill_order_item_collection.push(total_items);
-                        outlet_get_table_bill_order_item_collection.push('</span>');
-                        outlet_get_table_bill_order_item_collection.push('</div>');
-                        outlet_get_table_bill_order_item_collection.push('<div class="ui-block-b boxMPa">');
-                        outlet_get_table_bill_order_item_collection.push('<span class="boxMenu_size">');
-                        outlet_get_table_bill_order_item_collection.push('时间：');
-                        outlet_get_table_bill_order_item_collection.push('</span>');
-                        outlet_get_table_bill_order_item_collection.push('<span id="time" class="boxMenu_size">');
-                        outlet_get_table_bill_order_item_collection.push(bills_date + " " + bills_time);
-                        outlet_get_table_bill_order_item_collection.push('</span>');
-                        outlet_get_table_bill_order_item_collection.push('<br></br>');
-                        outlet_get_table_bill_order_item_collection.push('</div>');
-                        outlet_get_table_bill_order_item_collection.push('</div>');
-                        outlet_get_table_bill_order_item_collection.push('</td>');
-                        outlet_get_table_bill_order_item_collection.push('</tr>');
-                        outlet_get_table_bill_order_item_collection.push('<tr class="orderPanelClass">');
-                        outlet_get_table_bill_order_item_collection.push('<th>编号</th>');
-                        outlet_get_table_bill_order_item_collection.push('<th>菜品名称<br />');
-                        outlet_get_table_bill_order_item_collection.push('菜品备注');
-                        outlet_get_table_bill_order_item_collection.push('</th>');
-                        outlet_get_table_bill_order_item_collection.push('<th>数量</th>');
-                        outlet_get_table_bill_order_item_collection.push('<th>单价</th>');
-                        outlet_get_table_bill_order_item_collection.push('<th>价格 <br />');
-                        outlet_get_table_bill_order_item_collection.push('附加费');
-                        outlet_get_table_bill_order_item_collection.push('</th>');
-                        outlet_get_table_bill_order_item_collection.push('<th>税</th>');
-                        outlet_get_table_bill_order_item_collection.push('<th>状态</th>');
-                        outlet_get_table_bill_order_item_collection.push('<th>删除<br />');
-                        outlet_get_table_bill_order_item_collection.push('修改备注');
-                        outlet_get_table_bill_order_item_collection.push('</th>');
-                        outlet_get_table_bill_order_item_collection.push('</tr>');
-                        outlet_get_table_bill_order_item_collection.push('</thead>');
-                        outlet_get_table_bill_order_item_collection.push('<tbody id="my-table-tbody">');
-
-                        $.each(outlet_get_table_bill_order_item_finalize, function () {
-                            if (available_order_items[this][0]['qty'] > 0) {
-                                var tax_surcharge = 0.00;
-                                if (typeof available_order_items[this][0]['tax_surcharge'] != 'undefined') {
-                                    tax_surcharge = available_order_items[this][0]['tax_surcharge'];
-                                }
-                                outlet_get_table_bill_order_item_collection.push('<tr id="' + count_bill_items + '" class="orderPanelClass">');
-                                outlet_get_table_bill_order_item_collection.push('<td>' + count_bill_items + '</td>');
-                                outlet_get_table_bill_order_item_collection.push('<td>' + available_order_items[this][0]['descs'] + '</td>');
-                                outlet_get_table_bill_order_item_collection.push('<td id="Td1" class="colorRed">' + parseFloat(available_order_items[this][0]['qty']).toFixed(2) + '</td>');
-                                outlet_get_table_bill_order_item_collection.push('<td class="italic">' + parseFloat(available_order_items[this][0]['price']).toFixed(2) + '<span class="boxMenu_size"></span></td>');
-                                outlet_get_table_bill_order_item_collection.push('<td>' + parseFloat(available_order_items[this][0]['trx_amt']).toFixed(2) + '<br/>' + parseFloat(tax_surcharge).toFixed(2) + '</td>');
-                                outlet_get_table_bill_order_item_collection.push('<td>' + parseFloat(available_order_items[this][0]['total_tax_amt']).toFixed(2) + '</td>');
-                                outlet_get_table_bill_order_item_collection.push('<td id="Td2" style="color:#F00">已提交厨房</td>');
-                                outlet_get_table_bill_order_item_collection.push('<td>');
-                                outlet_get_table_bill_order_item_collection.push('<a class="ui-btn ui-btn-up-e ui-shadow ui-btn-corner-all ui-btn-icon-notext" style="margin: .5em 40%;" data-iconpos="notext" data-role="button" data-icon="delete" onclick="open_del_popup(' + available_order_items[this][0]['item_cd'] + ',' + available_order_items[this][0]['order_seq_no'] + ',' + available_order_items[this][0]['price'] + ',\'' + available_order_items[this][0]['descs'] + '\')" data-seqid="1" data-id="N" data-corners="true" data-shadow="true" data-iconshadow="true" data-wrapperels="span" data-theme="e" title="">');
-                                outlet_get_table_bill_order_item_collection.push('<span class="ui-btn-inner">');
-                                outlet_get_table_bill_order_item_collection.push('<span class="ui-btn-text"></span>');
-                                outlet_get_table_bill_order_item_collection.push('<span class="ui-icon ui-icon-delete ui-icon-shadow">');
-                                outlet_get_table_bill_order_item_collection.push('</span>');
-                                outlet_get_table_bill_order_item_collection.push('</span>');
-                                outlet_get_table_bill_order_item_collection.push('</a>');
-                                outlet_get_table_bill_order_item_collection.push('</td>');
-                                outlet_get_table_bill_order_item_collection.push('</tr>');
-
-                                count_bill_items++;
-                                total_bill_price = total_bill_price + parseFloat(available_order_items[this][0]['trx_amt']);
-                            }
-                        });
-                    } else {
-                        outlet_get_table_bill_order_item_collection.push('<div id="Div1" class="ui-grid-a">');
-                        outlet_get_table_bill_order_item_collection.push('<div class="ui-block-a boxMenu_price">');
-                        outlet_get_table_bill_order_item_collection.push('<span class="boxMenu_size">');
-                        outlet_get_table_bill_order_item_collection.push('已点数：');
-                        outlet_get_table_bill_order_item_collection.push('</span>');
-                        outlet_get_table_bill_order_item_collection.push('<span id="orderNumber" class="boxMenu_size">');
-                        outlet_get_table_bill_order_item_collection.push('1');
-                        outlet_get_table_bill_order_item_collection.push('</span>');
-                        outlet_get_table_bill_order_item_collection.push('</div>');
-                        outlet_get_table_bill_order_item_collection.push('<div class="ui-block-b boxMPa">');
-                        outlet_get_table_bill_order_item_collection.push('<span class="boxMenu_size">');
-                        outlet_get_table_bill_order_item_collection.push('时间：');
-                        outlet_get_table_bill_order_item_collection.push('</span>');
-                        outlet_get_table_bill_order_item_collection.push('<span id="time" class="boxMenu_size">');
-                        outlet_get_table_bill_order_item_collection.push(bills_date + " " + bills_time);
-                        outlet_get_table_bill_order_item_collection.push('</span>');
-                        outlet_get_table_bill_order_item_collection.push('<br></br>');
-                        outlet_get_table_bill_order_item_collection.push('</div>');
-                        outlet_get_table_bill_order_item_collection.push('</div>');
-                        outlet_get_table_bill_order_item_collection.push('</td>');
-                        outlet_get_table_bill_order_item_collection.push('</tr>');
-                        outlet_get_table_bill_order_item_collection.push('<tr class="orderPanelClass">');
-                        outlet_get_table_bill_order_item_collection.push('<th>编号</th>');
-                        outlet_get_table_bill_order_item_collection.push('<th>菜品名称<br />');
-                        outlet_get_table_bill_order_item_collection.push('菜品备注');
-                        outlet_get_table_bill_order_item_collection.push('</th>');
-                        outlet_get_table_bill_order_item_collection.push('<th>数量</th>');
-                        outlet_get_table_bill_order_item_collection.push('<th>单价</th>');
-                        outlet_get_table_bill_order_item_collection.push('<th>价格 <br />');
-                        outlet_get_table_bill_order_item_collection.push('附加费');
-                        outlet_get_table_bill_order_item_collection.push('</th>');
-                        outlet_get_table_bill_order_item_collection.push('<th>税</th>');
-                        outlet_get_table_bill_order_item_collection.push('<th>状态</th>');
-                        outlet_get_table_bill_order_item_collection.push('<th>删除<br />');
-                        outlet_get_table_bill_order_item_collection.push('修改备注');
-                        outlet_get_table_bill_order_item_collection.push('</th>');
-                        outlet_get_table_bill_order_item_collection.push('</tr>');
-                        outlet_get_table_bill_order_item_collection.push('</thead>');
-
-                        var tax_surcharge = 0.00;
-                        if (typeof parse_strjson_get_table_bill_order_item['ds_pt_order_list']['ds_pt_order_list_row']['tax_surcharge']['#text'] != 'undefined') {
-                            tax_surcharge = parse_strjson_get_table_bill_order_item['ds_pt_order_list']['ds_pt_order_list_row']['tax_surcharge']['#text'];
-                        }
-
-                        outlet_get_table_bill_order_item_collection.push('<tbody>');
-                        outlet_get_table_bill_order_item_collection.push('<tr id="' + count_bill_items + '" class="orderPanelClass">');
-                        outlet_get_table_bill_order_item_collection.push('<td>' + count_bill_items + '</td>');
-                        outlet_get_table_bill_order_item_collection.push('<td>' + parse_strjson_get_table_bill_order_item['ds_pt_order_list']['ds_pt_order_list_row']['descs']['#text'] + '</td>');
-                        outlet_get_table_bill_order_item_collection.push('<td class="colorRed">' + parse_strjson_get_table_bill_order_item['ds_pt_order_list']['ds_pt_order_list_row']['qty']['#text'] + '</td>');
-                        outlet_get_table_bill_order_item_collection.push('<td class="italic">' + parseFloat(parse_strjson_get_table_bill_order_item['ds_pt_order_list']['ds_pt_order_list_row']['price']['#text']).toFixed(2) + '<span class="boxMenu_size"></span></td>');
-                        outlet_get_table_bill_order_item_collection.push('<td>' + parseFloat(parse_strjson_get_table_bill_order_item['ds_pt_order_list']['ds_pt_order_list_row']['trx_amt']['#text']).toFixed(2) + '<br/>' + parseFloat(tax_surcharge).toFixed(2) + '</td>');
-                        outlet_get_table_bill_order_item_collection.push('<td>' + parseFloat(parse_strjson_get_table_bill_order_item['ds_pt_order_list']['ds_pt_order_list_row']['total_tax_amt']['#text']).toFixed(2) + '</td>');
-                        outlet_get_table_bill_order_item_collection.push('<td style="color:#F00">已提交厨房</td>');
-                        outlet_get_table_bill_order_item_collection.push('<td>');
-                        outlet_get_table_bill_order_item_collection.push('<a class="ui-btn ui-btn-up-e ui-shadow ui-btn-corner-all ui-btn-icon-notext" style="margin: .5em 40%;" data-iconpos="notext" data-role="button" data-icon="delete" onclick="open_del_popup(' + parse_strjson_get_table_bill_order_item['ds_pt_order_list']['ds_pt_order_list_row']['item_cd']['#text'] + ',' + parse_strjson_get_table_bill_order_item['ds_pt_order_list']['ds_pt_order_list_row']['order_seq_no']['#text'] + ',' + parse_strjson_get_table_bill_order_item['ds_pt_order_list']['ds_pt_order_list_row']['price']['#text'] + ',\'' + parse_strjson_get_table_bill_order_item['ds_pt_order_list']['ds_pt_order_list_row']['descs']['#text'] + '\')" data-seqid="1" data-id="N" data-corners="true" data-shadow="true" data-iconshadow="true" data-wrapperels="span" data-theme="e" title="">');
-                        outlet_get_table_bill_order_item_collection.push('<span class="ui-btn-inner">');
-                        outlet_get_table_bill_order_item_collection.push('<span class="ui-btn-text"></span>');
-                        outlet_get_table_bill_order_item_collection.push('<span class="ui-icon ui-icon-delete ui-icon-shadow">');
-                        outlet_get_table_bill_order_item_collection.push('</span>');
-                        outlet_get_table_bill_order_item_collection.push('</span>');
-                        outlet_get_table_bill_order_item_collection.push('</a>');
-                        outlet_get_table_bill_order_item_collection.push('</td>');
-                        outlet_get_table_bill_order_item_collection.push('</tr>');
-
-                        total_bill_price = total_bill_price + parseFloat(parse_strjson_get_table_bill_order_item['ds_pt_order_list']['ds_pt_order_list_row']['trx_amt']['#text']);
-                    }
-
-                }
-
-                outlet_get_table_bill_order_item_collection.push('<tr>');
-                outlet_get_table_bill_order_item_collection.push('<td colspan="8">');
-                outlet_get_table_bill_order_item_collection.push('<br /><br />');
-                //outlet_get_table_bill_order_item_collection.push('<div class="boxMenu_size_left">');
-                //outlet_get_table_bill_order_item_collection.push('<a id="saveToService" class="ui-btn-right ui-btn ui-shadow ui-mini ui-btn-inline ui-btn-up-f" data-corners="false" data-inline="true" data-mini="true" data-theme="f" data-role="button" data-shadow="true" data-iconshadow="true" data-wrapperels="span">');
-                //outlet_get_table_bill_order_item_collection.push('<span class="ui-btn-inner">');
-                //outlet_get_table_bill_order_item_collection.push('<span class="ui-btn-text">确定</span>');
-                //outlet_get_table_bill_order_item_collection.push('</span>');
-                //outlet_get_table_bill_order_item_collection.push('</a>');
-                //outlet_get_table_bill_order_item_collection.push('</div>');
-                outlet_get_table_bill_order_item_collection.push('<div class="boxMenu_size_right">');
-                outlet_get_table_bill_order_item_collection.push('总价：￥');
-                outlet_get_table_bill_order_item_collection.push('<span id="orderPrice">');
-                outlet_get_table_bill_order_item_collection.push(parseFloat(total_bill_price).toFixed(2));
-                outlet_get_table_bill_order_item_collection.push('</span>');
-                outlet_get_table_bill_order_item_collection.push('</div>');
-                outlet_get_table_bill_order_item_collection.push('</td>');
-                outlet_get_table_bill_order_item_collection.push('</tr>');
-                outlet_get_table_bill_order_item_collection.push('</tbody>');
-                outlet_get_table_bill_order_item_collection.push('</table>');
-                outlet_get_table_bill_order_item_join = outlet_get_table_bill_order_item_collection.join("");
-
-                var select_get_table_bill_order_itemu = $('#table_container');
-                select_get_table_bill_order_itemu.html('');
-                select_get_table_bill_order_itemu.html(outlet_get_table_bill_order_item_join);
-                $("#table_container").trigger("create");
-                $("#popup_table_container").popup("open");
-            },
-            error: function (data, status) {
-                alert(data.responseText);
-            }
-
-        });
-
-    }
-    //End function for order pannel
-
     $(document).ready(function () {
+        var exist_item_info = localStorage.getItem('item_info');
+        var exist_item_info_cd = localStorage.getItem('item_info_cd');
+
+        if (typeof exist_item_info !== 'undefined' && exist_item_info !== null) {
+            var exist_item_info_arr = JSON.parse(localStorage["item_info"]);
+            item_info = exist_item_info_arr;
+        }
+
+        if (typeof exist_item_info_cd !== 'undefined' && exist_item_info_cd !== null) {
+            var exist_item_info_cd_arr = JSON.parse(localStorage["item_info_cd"]);
+            item_info_cd = exist_item_info_cd_arr;
+        }
+
         getoutlet_meal_majorList();
 
         //remove all option before added in new one

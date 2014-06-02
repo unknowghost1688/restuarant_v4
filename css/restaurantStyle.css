@@ -1,6 +1,18 @@
 ﻿body {
 }
 
+.ui-field-contain > label, .ui-field-contain .ui-controlgroup-label, .ui-field-contain > .ui-rangeslider > label {
+    float: none;
+    width: 20%;
+    margin: .5em 2% 0 0;
+}
+
+.ui-page-theme-a .ui-btn, html .ui-bar-a .ui-btn, html .ui-body-a .ui-btn, html body .ui-group-theme-a .ui-btn, html head + body .ui-btn.ui-btn-a, .ui-page-theme-a .ui-btn:visited, html .ui-bar-a .ui-btn:visited, html .ui-body-a .ui-btn:visited, html body .ui-group-theme-a .ui-btn:visited, html head + body .ui-btn.ui-btn-a:visited {
+    border-color: #ddd;
+    color: #333;
+    text-shadow: 0 1px 0 #f3f3f3;
+}
+
 #page1 {
     background: url(../images/bg.jpg) no-repeat center center fixed; 
     -webkit-background-size: cover;
@@ -27,8 +39,13 @@
     font-size: 3vw;
 }
 
-#div_menu_items, #table_container {
+#div_menu_items {
     height: 500px;
+    overflow: auto;
+}
+ 
+#table_container {
+    height: 800px;
     overflow: auto;
 }
 
@@ -99,23 +116,22 @@
 }
 
 .menu_type_size {
-    font-size: 1.5vw;
+    font-size: 2vw;
     white-space:normal;
     text-transform: uppercase;
     font-weight:bold;
-    color: #000000;
     text-decoration:none;
 }
 
-.menu_type_style {
+.ui-page-theme-a.menu_type_style.ui-btn {
     width: 120px;
     height: 40px;
     -webkit-border-radius:10px;
     border-radius:10px;
-}
-
-.onselect_menu_type_style {
-    background: #2AD0FA;
+    white-space: nowrap !important;
+    overflow: visible !important;
+    padding: 1px;
+    background: #f9f9f9;
 }
 
 .menu_font_size {
@@ -126,34 +142,54 @@
     text-align: center;
 }
 
-.menu_header_menu_button_width {
+.ui-page-theme-a.menu_header_menu_button_width.ui-btn {
     width: 100px;
     height: 39px;
     text-align: center;
-    margin-bottom: 4px;
-    margin: 0 0;
+    text-transform: uppercase;
+    color: white;
+    font-weight:bold;
+    margin:0px;
+    padding:0px;
+    padding-top:10px;
+    -webkit-border-radius:10px;
+    border-radius:10px;
+    background: #BF6C0E;
 }
 
-.menu_header_menu_order_pannel_button_width {
+.ui-page-theme-a.menu_header_menu_order_pannel_button_width.ui-btn {
     width: 120px;
     height: 39px;
     text-align: center;
-    margin-bottom: 4px;
-    margin: 0 0;
+    text-transform: uppercase;
+    color: white;
+    font-weight:bold;
+    margin:0px;
+    padding:0px;
+    padding-top:10px;
+    -webkit-border-radius:10px;
+    border-radius:10px;
+    background: #BF6C0E;
 }
 
-.menu_width {
+.ui-page-theme-a.menu_width.ui-btn {
     width: 100px;
     height: 80px;
     text-align: center;
+    padding: 0px;
+    margin: 0px;
+    white-space: nowrap !important;
+    overflow: visible !important;
 }
 
-.menu_price_width {
+.ui-page-theme-a.menu_price_width.ui-btn {
     width: 75px;
     height: 80px;
     text-align: center;
     padding: 0px;
     margin: 0px;
+    white-space: nowrap !important;
+    overflow: visible !important;
 }
 
 .logo {
@@ -214,16 +250,11 @@ img {
     width: 3vw;
 }
 
-.btnClick {
-    line-height: 50%;
-    min-width: 100px;
-    min-height: 40px;
-    font-size: 4.5vw;
+.ui-page-theme-a.btnclick.ui-btn {
     text-transform: uppercase;
     color: white;
     font-weight:bold;
     margin:0px;
-    padding:0px;
     -webkit-border-radius:10px;
     border-radius:10px;
     background: #BF6C0E;
