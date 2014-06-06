@@ -119,8 +119,9 @@
 </html>
 
 <script type="text/javascript">
-    function open_del_popup(item_cd, order_seq_no, price, descs) {
+    function open_del_popup(item_cd, order_seq_no, price, descs, qty) {
         
+        $("#txtCount").val(qty);
         $("#item_cd").val(item_cd);
         $("#order_seq_no").val(order_seq_no);
         $("#condiment_title").html(descs);
@@ -128,8 +129,9 @@
         $("#popupBasic").popup("open");
     }
 
-    function open_order_list_del_popup(item_cd, price, descs) {
+    function open_order_list_del_popup(item_cd, price, descs, qty) {
 
+        $("#txt_val_delete_order_list").val(qty);
         $("#txt_cd_delete_order_list").val(item_cd);
         $("#condiment_title_delete_order_list").html(descs);
         $("#condiment_price_delete_order_list").html('RM ' + price);
@@ -156,13 +158,15 @@
             } else {
                 var exist_item_info_arr = JSON.parse(localStorage["item_info"]);
                 var exist_item_info_cd_arr = JSON.parse(localStorage["item_info_cd"]);
-
+				var exist_total_order_items = localStorage.getItem("total_order_items");
+				
                 var new_qty = parseFloat(exist_item_info_arr[item_cd][0]['qty']) - parseFloat(txtCount);
                 var new_total_amt = parseFloat(txtCount) * parseFloat(exist_item_info_arr[item_cd][0]['price']);
                 var new_trx_amt = parseFloat(exist_item_info_arr[item_cd][0]['trx_amt']) - parseFloat(new_total_amt);
                 var new_total_weight = parseFloat(txtCount) * parseFloat(exist_item_info_arr[item_cd][0]['weight']);
                 var new_weight = parseFloat(exist_item_info_arr[item_cd][0]['weight']) - parseFloat(new_total_weight);
-
+				var new_total_order_items = parseFloat(exist_total_order_items) - parseFloat(txtCount);
+				
                 var new_item_info = [];
                 var new_item_info_cd = [];
 
@@ -173,7 +177,7 @@
                 exist_item_info_arr[item_cd][0]['trx_amt'] = new_trx_amt;
                 exist_item_info_arr[item_cd][0]['weight'] = new_weight;
 
-
+				localStorage.setItem("total_order_items", new_total_order_items);
                 localStorage["item_info"] = JSON.stringify(exist_item_info_arr);
                 localStorage["item_info_cd"] = JSON.stringify(exist_item_info_cd_arr);
 
@@ -194,7 +198,7 @@
         var order_seq_no = $("#order_seq_no").val();
 
         if ($.isNumeric(txtCount) && txtCount > 0) {
-            var wsUrl_get_void_order_item_list = "http://175.139.183.94:1002/webservice_posv5/n_webservice_posv5.asmx?op=of_void_order_item";
+            var wsUrl_get_void_order_item_list = "http://localhost/webservice_posv5/n_webservice_posv5.asmx?op=of_void_order_item";
 
             var soapRequest_get_void_order_item_list =
                 '<?xml version="1.0" encoding="utf-8"?> \
@@ -260,7 +264,7 @@
         var bill_no = localStorage.getItem('bill_no');
         var SelectedsearchTable = localStorage.getItem('SelectedsearchTable');
 
-        var wsUrl_get_get_table_bill_order_item_list = "http://175.139.183.94:1002/webservice_posv5/n_webservice_posv5.asmx?op=of_get_table_bill_order_item";
+        var wsUrl_get_get_table_bill_order_item_list = "http://localhost/webservice_posv5/n_webservice_posv5.asmx?op=of_get_table_bill_order_item";
 
         var soapRequest_get_get_table_bill_order_item_list =
             '<?xml version="1.0" encoding="utf-8"?> \
@@ -327,8 +331,8 @@
                     outlet_get_table_bill_order_item_collection.push('<tr class="orderPanelClass">');
                     outlet_get_table_bill_order_item_collection.push('<th colspan="8">');
                     outlet_get_table_bill_order_item_collection.push('<div data-role="controlgroup" data-type="horizontal">');
-                    outlet_get_table_bill_order_item_collection.push('<a id="havnt_submit_to_kitchen" href="javascript:void(0)" onClick="order_list();" data-role="button" data-corners="false" data-inline="true" data-mini="true" class="ui-page-theme-a ui-btn menu_header_menu_button_width"><span class="menu_font_size">未提交厨房</span></a>');
-                    outlet_get_table_bill_order_item_collection.push('<a id="submited_to_kitchen" href="javascript:void(0)" onClick="kitchen_list();" data-role="button" data-corners="false" data-inline="true" data-mini="true" class="ui-page-theme-a ui-btn menu_header_menu_button_width"><span class="menu_font_size">已提交厨房</span></a>');
+                    outlet_get_table_bill_order_item_collection.push('<a id="havnt_submit_to_kitchen" href="javascript:void(0)" onClick="order_list();" data-role="button" data-corners="false" data-inline="true" data-mini="true" class="ui-page-theme-a ui-btn menu_type_style"><span class="menu_font_size">未提交厨房</span></a>');
+                    outlet_get_table_bill_order_item_collection.push('<a id="submited_to_kitchen" href="javascript:void(0)" onClick="kitchen_list();" data-role="button" data-corners="false" data-inline="true" data-mini="true" class="ui-page-theme-a ui-btn selected_menu_type_style"><span class="menu_font_size">已提交厨房</span></a>');
                     outlet_get_table_bill_order_item_collection.push('</div>');
                     outlet_get_table_bill_order_item_collection.push('</th>');
                     outlet_get_table_bill_order_item_collection.push('</tr>');
@@ -396,8 +400,8 @@
                     outlet_get_table_bill_order_item_collection.push('<tr class="orderPanelClass">');
                     outlet_get_table_bill_order_item_collection.push('<th colspan="8">');
                     outlet_get_table_bill_order_item_collection.push('<div data-role="controlgroup" data-type="horizontal">');
-                    outlet_get_table_bill_order_item_collection.push('<a id="havnt_submit_to_kitchen" href="javascript:void(0)" onClick="order_list();" data-role="button" data-corners="false" data-inline="true" data-mini="true" class="ui-page-theme-a ui-btn menu_header_menu_button_width"><span class="menu_font_size">未提交厨房</span></a>');
-                    outlet_get_table_bill_order_item_collection.push('<a id="submited_to_kitchen" href="javascript:void(0)" onClick="kitchen_list();" data-role="button" data-corners="false" data-inline="true" data-mini="true" class="ui-page-theme-a ui-btn menu_header_menu_button_width"><span class="menu_font_size">已提交厨房</span></a>');
+                    outlet_get_table_bill_order_item_collection.push('<a id="havnt_submit_to_kitchen" href="javascript:void(0)" onClick="order_list();" data-role="button" data-corners="false" data-inline="true" data-mini="true" class="ui-page-theme-a ui-btn menu_type_style"><span class="menu_font_size">未提交厨房</span></a>');
+                    outlet_get_table_bill_order_item_collection.push('<a id="submited_to_kitchen" href="javascript:void(0)" onClick="kitchen_list();" data-role="button" data-corners="false" data-inline="true" data-mini="true" class="ui-page-theme-a ui-btn selected_menu_type_style"><span class="menu_font_size">已提交厨房</span></a>');
                     outlet_get_table_bill_order_item_collection.push('</div>');
                     outlet_get_table_bill_order_item_collection.push('</th>');
                     outlet_get_table_bill_order_item_collection.push('</tr>');
@@ -497,7 +501,7 @@
                                 outlet_get_table_bill_order_item_collection.push('<td>' + parseFloat(available_order_items[this][0]['total_tax_amt']).toFixed(2) + '</td>');
                                 outlet_get_table_bill_order_item_collection.push('<td id="Td2" style="color:#F00">已提交厨房</td>');
                                 outlet_get_table_bill_order_item_collection.push('<td>');
-                                outlet_get_table_bill_order_item_collection.push('<a href="javascript:void(0)" onclick="open_del_popup(' + available_order_items[this][0]['item_cd'] + ',' + available_order_items[this][0]['order_seq_no'] + ',' + available_order_items[this][0]['price'] + ',\'' + available_order_items[this][0]['descs'] + '\')" data-role="button" data-icon="delete" data-iconpos="notext">&nbsp;</a>');
+                                outlet_get_table_bill_order_item_collection.push('<a href="javascript:void(0)" onclick="open_del_popup(' + available_order_items[this][0]['item_cd'] + ',' + available_order_items[this][0]['order_seq_no'] + ',' + available_order_items[this][0]['price'] + ',\'' + available_order_items[this][0]['descs'] + '\',\'' + available_order_items[this][0]['qty'] + '\')" data-role="button" data-icon="delete" data-iconpos="notext">&nbsp;</a>');
                                 outlet_get_table_bill_order_item_collection.push('</td>');
                                 outlet_get_table_bill_order_item_collection.push('</tr>');
 
@@ -560,7 +564,7 @@
                         outlet_get_table_bill_order_item_collection.push('<td>' + parseFloat(parse_strjson_get_table_bill_order_item['ds_pt_order_list']['ds_pt_order_list_row']['total_tax_amt']['#text']).toFixed(2) + '</td>');
                         outlet_get_table_bill_order_item_collection.push('<td id="Td2" style="color:#F00">已提交厨房</td>');
                         outlet_get_table_bill_order_item_collection.push('<td>');
-                        outlet_get_table_bill_order_item_collection.push('<a href="javascript:void(0)" onclick="open_del_popup(' + parse_strjson_get_table_bill_order_item['ds_pt_order_list']['ds_pt_order_list_row']['item_cd']['#text'] + ',' + parse_strjson_get_table_bill_order_item['ds_pt_order_list']['ds_pt_order_list_row']['order_seq_no']['#text'] + ',' + parse_strjson_get_table_bill_order_item['ds_pt_order_list']['ds_pt_order_list_row']['price']['#text'] + ',\'' + parse_strjson_get_table_bill_order_item['ds_pt_order_list']['ds_pt_order_list_row']['descs']['#text'] + '\')" data-role="button" data-icon="delete" data-iconpos="notext">&nbsp;</a>');
+                        outlet_get_table_bill_order_item_collection.push('<a href="javascript:void(0)" onclick="open_del_popup(' + parse_strjson_get_table_bill_order_item['ds_pt_order_list']['ds_pt_order_list_row']['item_cd']['#text'] + ',' + parse_strjson_get_table_bill_order_item['ds_pt_order_list']['ds_pt_order_list_row']['order_seq_no']['#text'] + ',' + parse_strjson_get_table_bill_order_item['ds_pt_order_list']['ds_pt_order_list_row']['price']['#text'] + ',\'' + parse_strjson_get_table_bill_order_item['ds_pt_order_list']['ds_pt_order_list_row']['descs']['#text'] + '\',\'' + parse_strjson_get_table_bill_order_item['ds_pt_order_list']['ds_pt_order_list_row']['qty']['#text'] + '\')" data-role="button" data-icon="delete" data-iconpos="notext">&nbsp;</a>');
                         outlet_get_table_bill_order_item_collection.push('</td>');
                         outlet_get_table_bill_order_item_collection.push('</tr>');
 
@@ -661,8 +665,8 @@
             outlet_get_table_bill_order_item_collection.push('<tr class="orderPanelClass">');
             outlet_get_table_bill_order_item_collection.push('<th colspan="8">');
             outlet_get_table_bill_order_item_collection.push('<div data-role="controlgroup" data-type="horizontal">');
-            outlet_get_table_bill_order_item_collection.push('<a id="havnt_submit_to_kitchen" href="javascript:void(0)" onClick="order_list();" data-role="button" data-corners="false" data-inline="true" data-mini="true" class="ui-page-theme-a ui-btn menu_header_menu_button_width"><span class="menu_font_size">未提交厨房</span></a>');
-            outlet_get_table_bill_order_item_collection.push('<a id="submited_to_kitchen" href="javascript:void(0)" onClick="kitchen_list();" data-role="button" data-corners="false" data-inline="true" data-mini="true" class="ui-page-theme-a ui-btn menu_header_menu_button_width"><span class="menu_font_size">已提交厨房</span></a>');
+            outlet_get_table_bill_order_item_collection.push('<a id="havnt_submit_to_kitchen" href="javascript:void(0)" onClick="order_list();" data-role="button" data-corners="false" data-inline="true" data-mini="true" class="ui-page-theme-a ui-btn selected_menu_type_style"><span class="menu_font_size">未提交厨房</span></a>');
+            outlet_get_table_bill_order_item_collection.push('<a id="submited_to_kitchen" href="javascript:void(0)" onClick="kitchen_list();" data-role="button" data-corners="false" data-inline="true" data-mini="true" class="ui-page-theme-a ui-btn menu_type_style"><span class="menu_font_size">已提交厨房</span></a>');
             outlet_get_table_bill_order_item_collection.push('</div>');
             outlet_get_table_bill_order_item_collection.push('</th>');
             outlet_get_table_bill_order_item_collection.push('</tr>');
@@ -734,8 +738,8 @@
             outlet_get_table_bill_order_item_collection.push('<tr class="orderPanelClass">');
             outlet_get_table_bill_order_item_collection.push('<th colspan="8">');
             outlet_get_table_bill_order_item_collection.push('<div data-role="controlgroup" data-type="horizontal">');
-            outlet_get_table_bill_order_item_collection.push('<a id="havnt_submit_to_kitchen" href="javascript:void(0)" onClick="order_list();" data-role="button" data-corners="false" data-inline="true" data-mini="true" class="ui-page-theme-a ui-btn menu_header_menu_button_width"><span class="menu_font_size">未提交厨房</span></a>');
-            outlet_get_table_bill_order_item_collection.push('<a id="submited_to_kitchen" href="javascript:void(0)" onClick="kitchen_list();" data-role="button" data-corners="false" data-inline="true" data-mini="true" class="ui-page-theme-a ui-btn menu_header_menu_button_width"><span class="menu_font_size">已提交厨房</span></a>');
+            outlet_get_table_bill_order_item_collection.push('<a id="havnt_submit_to_kitchen" href="javascript:void(0)" onClick="order_list();" data-role="button" data-corners="false" data-inline="true" data-mini="true" class="ui-page-theme-a ui-btn selected_menu_type_style"><span class="menu_font_size">未提交厨房</span></a>');
+            outlet_get_table_bill_order_item_collection.push('<a id="submited_to_kitchen" href="javascript:void(0)" onClick="kitchen_list();" data-role="button" data-corners="false" data-inline="true" data-mini="true" class="ui-page-theme-a ui-btn menu_type_style"><span class="menu_font_size">已提交厨房</span></a>');
             outlet_get_table_bill_order_item_collection.push('</div>');
             outlet_get_table_bill_order_item_collection.push('</th>');
             outlet_get_table_bill_order_item_collection.push('</tr>');
@@ -797,7 +801,7 @@
                     outlet_get_table_bill_order_item_collection.push('<td>' + parseFloat(exist_item_info_arr[this][0]['total_tax_amt']).toFixed(2) + '</td>');
                     outlet_get_table_bill_order_item_collection.push('<td id="Td2" style="color:#F00">未提交厨房</td>');
                     outlet_get_table_bill_order_item_collection.push('<td>');
-                    outlet_get_table_bill_order_item_collection.push('<a href="javascript:void(0)" onclick="open_order_list_del_popup(' + exist_item_info_arr[this][0]['item_cd'] + ',' + exist_item_info_arr[this][0]['price'] + ',\'' + exist_item_info_arr[this][0]['descs'] + '\')" data-role="button" data-icon="delete" data-iconpos="notext">&nbsp;</a>');
+                    outlet_get_table_bill_order_item_collection.push('<a href="javascript:void(0)" onclick="open_order_list_del_popup(' + exist_item_info_arr[this][0]['item_cd'] + ',' + exist_item_info_arr[this][0]['price'] + ',\'' + exist_item_info_arr[this][0]['descs'] + '\',\'' + exist_item_info_arr[this][0]['qty'] + '\')" data-role="button" data-icon="delete" data-iconpos="notext">&nbsp;</a>');
                     outlet_get_table_bill_order_item_collection.push('</td>');
                     outlet_get_table_bill_order_item_collection.push('</tr>');
 
@@ -892,7 +896,7 @@
                 var item_info_encoded = $('<div/>').text(item_info).html();
 
 
-                var wsUrl_get_create_order_item_list = "http://175.139.183.94:1002/webservice_posv5/n_webservice_posv5.asmx?op=of_create_order_item";
+                var wsUrl_get_create_order_item_list = "http://localhost/webservice_posv5/n_webservice_posv5.asmx?op=of_create_order_item";
 
                 var soapRequest_get_create_order_item_list =
                     '<?xml version="1.0" encoding="utf-8"?> \
@@ -948,7 +952,7 @@
         select_get_table_bill_order_itemu.html('');
         select_get_table_bill_order_itemu.html('<br/><br/>');
         $("#table_container").trigger("create");
-        //get_table_bill_order_item_function();
+        
         get_table_order_list_function();
     });
 

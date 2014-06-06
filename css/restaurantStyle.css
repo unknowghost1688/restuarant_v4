@@ -132,6 +132,21 @@
     overflow: visible !important;
     padding: 1px;
     background: #f9f9f9;
+    color: #000000;
+    text-decoration:none !important;
+}
+
+.ui-page-theme-a.selected_menu_type_style.ui-btn {
+    width: 120px;
+    height: 40px;
+    -webkit-border-radius:10px;
+    border-radius:10px;
+    white-space: nowrap !important;
+    overflow: visible !important;
+    padding: 1px;
+    background: #EC494A;
+    color: #FFFFFF;
+    text-decoration:none !important;
 }
 
 .menu_font_size {
