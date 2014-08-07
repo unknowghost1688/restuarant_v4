@@ -198,7 +198,7 @@
         var order_seq_no = $("#order_seq_no").val();
 
         if ($.isNumeric(txtCount) && txtCount > 0) {
-            var wsUrl_get_void_order_item_list = "http://175.139.183.94:1002/webservice_posv5/n_webservice_posv5.asmx?op=of_void_order_item";
+            var wsUrl_get_void_order_item_list = "http://175.139.183.59:1002/webservice_posv5/n_webservice_posv5.asmx?op=of_void_order_item";
 
             var soapRequest_get_void_order_item_list =
                 '<?xml version="1.0" encoding="utf-8"?> \
@@ -264,7 +264,7 @@
         var bill_no = localStorage.getItem('bill_no');
         var SelectedsearchTable = localStorage.getItem('SelectedsearchTable');
 
-        var wsUrl_get_get_table_bill_order_item_list = "http://175.139.183.94:1002/webservice_posv5/n_webservice_posv5.asmx?op=of_get_table_bill_order_item";
+        var wsUrl_get_get_table_bill_order_item_list = "http://175.139.183.59:1002/webservice_posv5/n_webservice_posv5.asmx?op=of_get_table_bill_order_item";
 
         var soapRequest_get_get_table_bill_order_item_list =
             '<?xml version="1.0" encoding="utf-8"?> \
@@ -896,7 +896,7 @@
                 var item_info_encoded = $('<div/>').text(item_info).html();
 
 
-                var wsUrl_get_create_order_item_list = "http://175.139.183.94:1002/webservice_posv5/n_webservice_posv5.asmx?op=of_create_order_item";
+                var wsUrl_get_create_order_item_list = "http://175.139.183.59:1002/webservice_posv5/n_webservice_posv5.asmx?op=of_create_order_item";
 
                 var soapRequest_get_create_order_item_list =
                     '<?xml version="1.0" encoding="utf-8"?> \

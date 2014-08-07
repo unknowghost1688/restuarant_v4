@@ -257,7 +257,7 @@
     function getoutlet_meal_majorList() {
         var outlet = localStorage.getItem('outlet');
         var mealperiod = localStorage.getItem('mealperiod');
-        var wsUrl_get_outlet_meal_major_list = "http://175.139.183.94:1002/webservice_posv5/n_webservice_posv5.asmx?op=of_get_outlet_meal_major";
+        var wsUrl_get_outlet_meal_major_list = "http://175.139.183.59:1002/webservice_posv5/n_webservice_posv5.asmx?op=of_get_outlet_meal_major";
 
         var soapRequest_get_outlet_meal_major_list =
             '<?xml version="1.0" encoding="utf-8"?> \
@@ -357,7 +357,7 @@
         var outlet = localStorage.getItem('outlet');
         var mealperiod = localStorage.getItem('mealperiod');
         var mealmajor = localStorage.getItem('mealmajor');
-        var wsUrl_get_outlet_meal_major_menu = "http://175.139.183.94:1002/webservice_posv5/n_webservice_posv5.asmx?op=of_get_outlet_meal_major_menu";
+        var wsUrl_get_outlet_meal_major_menu = "http://175.139.183.59:1002/webservice_posv5/n_webservice_posv5.asmx?op=of_get_outlet_meal_major_menu";
 
         var soapRequest_get_outlet_meal_major_menu =
             '<?xml version="1.0" encoding="utf-8"?> \
@@ -497,7 +497,7 @@
         var SelectedcustomerType = $("#customerType :selected").val();
         var outlet = localStorage.getItem('outlet');
         var mealperiod = localStorage.getItem('mealperiod');
-        var wsUrl_get_outlet_meal_popular_menu = "http://175.139.183.94:1002/webservice_posv5/n_webservice_posv5.asmx?op=of_get_outlet_meal_popular_menu";
+        var wsUrl_get_outlet_meal_popular_menu = "http://175.139.183.59:1002/webservice_posv5/n_webservice_posv5.asmx?op=of_get_outlet_meal_popular_menu";
 
         var soapRequest_get_outlet_meal_popular_menu =
             '<?xml version="1.0" encoding="utf-8"?> \
@@ -647,7 +647,7 @@
 
         var outlet = localStorage.getItem('outlet');
         var location = '%';
-        var wsUrl_get_table_list = "http://175.139.183.94:1002/webservice_posv5/n_webservice_posv5.asmx?op=of_get_table_list";
+        var wsUrl_get_table_list = "http://175.139.183.59:1002/webservice_posv5/n_webservice_posv5.asmx?op=of_get_table_list";
             
         var soapRequest_get_table_list =
             '<?xml version="1.0" encoding="utf-8"?> \
@@ -709,7 +709,7 @@
         var outlet = localStorage.getItem('outlet');
         var SelectedsearchTable = $("#searchTable :selected").val();
         
-        var wsUrl_get_table_bill_list = "http://175.139.183.94:1002/webservice_posv5/n_webservice_posv5.asmx?op=of_get_table_bill";
+        var wsUrl_get_table_bill_list = "http://175.139.183.59:1002/webservice_posv5/n_webservice_posv5.asmx?op=of_get_table_bill";
 
         var soapRequest_get_table_bill_list =
             '<?xml version="1.0" encoding="utf-8"?> \
@@ -804,7 +804,7 @@
         var username = localStorage.getItem('username');
 
         if ($.isNumeric(customerNumber) && SelectedsearchTable > 0) {
-            var wsUrl_get_create_table_list_list = "http://175.139.183.94:1002/webservice_posv5/n_webservice_posv5.asmx?op=of_create_table_bill";
+            var wsUrl_get_create_table_list_list = "http://175.139.183.59:1002/webservice_posv5/n_webservice_posv5.asmx?op=of_create_table_bill";
 
             var soapRequest_get_create_table_list_list =
                 '<?xml version="1.0" encoding="utf-8"?> \
@@ -917,7 +917,7 @@
         var SelectedOutletCode = localStorage.getItem('outlet');
         var SelectedStationCode = localStorage.getItem('station');
 
-        var wsUrl_get_logout_list = "http://175.139.183.94:1002/webservice_posv5/n_webservice_posv5.asmx?op=of_logout";
+        var wsUrl_get_logout_list = "http://175.139.183.59:1002/webservice_posv5/n_webservice_posv5.asmx?op=of_logout";
 
         var soapRequest_get_logout_list =
             '<?xml version="1.0" encoding="utf-8"?> \
